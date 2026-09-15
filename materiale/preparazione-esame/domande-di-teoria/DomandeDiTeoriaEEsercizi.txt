@@ -1,0 +1,93 @@
+
+[x]
+
+TEXT PROCESSING
+1. Qual'è la pipeline e quali sono i vari step e cosa significano.
+2. Proporre un semplice esempio.
+
+[x]
+
+INVERTED INDEX
+
+Esempio di Esercizio:
+    
+    Dati alcuni documenti (solitamente 3 composti da non più di 4 parole ognuno) mostrami un possibile risultato per la fase di pre-processing e successivamente il relativo InvertedIndex (solo vettore dei termini e PL dei documenti, non Trie). (A seconda delle fasi di pre-processing che decidiamo di fare possiamo decidere di rimuovere anche i verbi; a volte lo stemming o il lemmatizing sono utili per ridurre il numero di parole).
+
+    FASE1: PREPROCESSING SU DOCUMENTI
+    FASE2: COSTRUZIONE INVERTED INDEX
+
+    Esempio:
+
+    doc_1= che bello andare a scuola in bicicletta
+    doc_2= la bicicletta è parcheggiata più avanti
+    doc_3= è vietato parcheggiare vicino a scuola
+
+    1. Dalla fase di preprocessing dobiamo:
+
+    tokens_doc_1= andare scuola bicicletta
+    tokens_doc_2= bicicletta parcheggiare
+    tokens_doc_3= parcheggiare scuola
+
+    2. Disegno del vettore dei termini:
+
+    andare
+    bicicletta
+    parcheggiare
+    scuola
+
+    3. Disegno della lista di documenti (Word InvertedIndex):
+
+    andare       --> doc1,f1
+    bicicletta   --> doc1,f1 | doc2,f1
+    parcheggiare --> doc2,f1 | doc3,f1
+    scuola       --> doc1,f1 | doc3,f1
+
+---
+
+[ ]
+
+QUERY: "information retrieval system"
+
+PROCEDIMENTO DEL PHRASAL RETRIEVAL:
+
+1. Troviamo tutti i documenti che contengono tutte e tre le parole "information", "retrieval" e "system". Ridurre il document set su cui vado a lavorare facendo un'intersezione.
+
+>> Solo il documento 7 le contiene tutte e 3
+
+2. CHECK ORDER CONTIGUITY: sono certo che queste tre parole ci siano nel documento ma devo controllare che esse siano contigue. In questo caso ci aiuta molto l'Il "Position Based Inverted Index". 
+
+>> Position List <information>: 1 10 (27) 338
+>> Position List <retrieval>:   2 (28) 939 3127
+>> Position List <system>:      4 (29)   <--- p + i - s
+
+: p = posizione della prima parola nel del documento D.
+: i = posizione della seconda parola nella query Q.
+: s = offset tra parola prima parola e seconda parola nella query Q.
+
+Calcolo la posizione della seconda parola tramite la formula: (p + i - s)
+
+SE PHRASAL QUERY DI PRECISIONE
+
+Controllo tramite una BS se nella lista delle posizioni della seconda parola compare la posizione calcolata.
+
+SE PHRASAL QUERY CON DISTANZA MASSIMA TRA PAROLE
+
+: w = distanza massima consentita tra le due parole, per considerare soddisfatta la query (w > 0).
+Proximity retrieval: w = distanza massima tra le parole.
+
+Posizione minima: (p + i - s)
+Posizione massima: (p + i - s) + w - 1
+
+Tramite l'algoritmo della Binary Search cerco all'interno della lista di posizioni della seconda parola all'intenro del documento D una posizione che sia tra la posizione minima e la posizione massima calcolate.   
+
+In sintesi:
+
+Dato che la parola "system" ha una frequenza di due si parte proprio da questa. Si va in ordine delle parole che compaiono meno. Da qui contiguity check algorithm. Per ogni campo di PL della parola con la frequenza più bassa (O(n)) andiamo a fare una binary search sugli altri PL delle altre parole per cercare posizioni definite in questo modo: p +i -s.
+
+---
+
+MODELLO PROBABILISTICO TEORIA:
+
+ALL'ESAME
+La prof al più ha chiesto all'esame di far vedere le formule (slide 71-74), di far vedere i passaggi, ma non i passaggi matematici del passare da una formula all'altra.
+Dobbiamo aver capito le formule e saper spiegare che cosa vogliono dire.

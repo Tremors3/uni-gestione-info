@@ -1,0 +1,2296 @@
+----- APPUNTI LEZIONE (1) 24-set-2024 ------------------------------------------------
+
+Il corso è il proseguimento del corso di Basi di Dati.
+
+In questa prima lezione scopriremo altre tipologie di dati che dobbiamo essere pronti ad affrontare (Immagini, Video).
+Dobbiamo conoscere, manipolare e gestire molte tipologie differenti di dati.
+
+BIG DATA - Inimmaginabile quantità di informazioni da immagazzinare.
+
+Il principale focus del corso è di imarare a manipolare dati testuali.
+Perchè il testo? Perchè è la principale forma di comunicazione (anche nei social network) al giorno d'oggi.
+Andare nello specifico ad insegnarci come manipolare, gestire e fare ricerche sul testo.
+
+Utilizzeremo come modello software i SEARCH ENGINE.
+Strumenti capaci di archiviare enormi quantità di dati.
+Ricevono nostre richieste sotto forma di parole chiave.
+Restituiscono le pagine più rilevanti.
+
+Google (i "search engines" in generale) ordina (ranking) le pagine web secondo certi parametri (rilevanti) per cercare quelli più rilevanti per la tua necessità infermativa. 
+Il Ranking è basato su dei modelli.
+
+1. Ricerca Efficiente: il programma deve eseguire le richieste nel minor tempo possibile. Si parla di ms, i.e. 0.135ms.
+2. Ricerca Efficace: ogni qual volta che faccio una richiesta nelle prime posizioni devo avere i dati più rilevanti (indici).
+3. ...
+
+Il linguaggio di programmazione che utilizzeremo sarà Python.
+Durante il corso proveremo degli snippets in python e svolgeremo degli esercizi.
+Ma il grosso del lavoro sarà sul progetto. Che svolgeremo quando avremo gli strumenti già da metà corso.
+
+1. Modalità di interrogazione
+2. keyword-based search 
+3. tolerant retrieval
+
+---
+
+L'algoritmo PAGE RANK è forse il più utilizzato per ordinare (ranking) di pagine web... nasce dai creatori di google.
+
+---
+
+C'è un testo reperibile gratuitamente il quale link è reperibile su moodle.
+
+---
+
+Tesi di ricerca e tirocini aziendali:
+    www.isgroup.unimo.it/theses.html
+Riguarda gestione dati Data-Centric AI (LLM: Large Language Model) in campo medico, clinico, ...
+
+---
+
+C'è un mondo di informazione che va oltre i dati relazionali.
+L'80% dei dati digitali sono dati non strutturati (non tabulare).
+
+Si costruiscono dei modelli che danno dei valori di rilevanza che vanno da 0% a 100% (da 0 a 1);
+Ma questi modelli li dobbiamo inventare noi.
+
+---
+
+Il WWW espone una grande quantità di dati. Quello che è visibile all'occhio umano sono le pagine web.
+Il WWW non è altro che una enorme rete di pagine collegate tra loro tramite dei LINKS.
+I Search Engines consentono di navigare tale grafo.
+
+HTML linguaggio di markup "di rendering", indirizzato all'occhio umano, cioè a colui che vede la pagina.
+Questo rende difficile ad individuare in modo intelligente alla macchina di individuare le informazioni però.
+
+L'idea dei Linked Open Data Cloud(Lod-cloud.net) è di creare un insieme di risorse web e metterle in relazione tra loro per creare delle realtà di interesse. Un insieme di principi di design per condividere codice interconnesso che è leggibile dalla macchina (machine-readable).
+
+---
+
+KNOWLEDGE GRAPH
+
+Il "wiki.dbpedia.org" è la rappresentazione a grafo di WikiPedia. 
+E' una rappresentazione a grago in cui i nodi sono cose di interesse (pagine) e gli archi qualcosa che mette in relazione i nodi.
+E' adesso disponibile l'API per utilizzare il KNOWLEDGE GRAPH di google. E' possibile utilizzarla nel nostro progetto.
+
+> Gogle Search center > Knowledge Graph Srarch API
+
+Anche nei social networks vengono utilizzati dei knowledge graphs per collegare gli utenti a degli argomenti comuni trattati su posts, ecc...
+
+Grandissima banca dati di sequenze genetiche (GENE):
+
+> National Library of Biological Data
+
+Una sequenza genetica è come una sequenza di caratteri, quindi del testo. Se voglio cercare una sequenza simile ad un'altra le metodologie utilizzate per compiere questo sono analoghe a quelle web.
+
+---
+
+ONTOLOGIA: Grande grafo per descrivere la realtà di interesse e scambiarsi le informaioni.
+
+---
+
+DIGITAL LIBRARIES: Un esempio è Google Scholar nel quale motore inserisci le parole chiave e lui non ti ritorna le pagine web ma gli articoli scientifici.
+---
+
+DATA STANDARDS: W3C - Consorzio che si occupa degli standard nel WWW (ha tirato fuori html, ecc...)
+
+
+
+
+
+
+----- APPUNTI LEZIONE (2) 26-set-2024 ------------------------------------------------
+
+INFORMATION RETRIEVAL e TOLLERANT RETRIEVAL
+
+QUERY LANGUAGES
+
+---
+
+Testo è ambiguo. Quando il sistema riceve una query il testo che compone la query può essere ambiguo. Il nostro focus sarà su sistem che ricevono query sotto forma di input testuali e forniscono informazioni rilevanti.
+
+Search Engines (Google)
+Dispense di Digital Libraries (Dialog, Lexis-nexis, Blast)
+Barra di ricerca nel file system (File system find)
+
+Algoritmo di similarità che ci restituisce un valore che rappresenta la similarità del tra la query inserita dall'utente "ed i risultati ottenuti?". Algoritmi di similarità (elenco sulla piattaforma web di Blast).
+
+---
+
+INFORMATION RETRIEVAL
+
+Collezzione - lista di elementi testuali
+
+---
+
+DATA RETRIEVAL vs INFORMATION RETRIEVAL
+
+Dalla differenza della definizione tra "DATO" e "INFORMAZIONE" ne deriva anche la differenza tra il "DATA RETRIEVAL" e "INFORMATION RETRIEVAL".
+
+Nel data retrieval i dati sono ben strutturati ed organizzati.
+
+Nell'information retrieval le informazioni sono testo in "natural language" non strutturato e non organizzato. Vengono ritirate delle informazioni imprecise.
+
+Il sistema deve essere in grado di interpretare il significato dei "TEXT ITEMS".
+
+PIPELINE
+
+Informaioni non organizzate (flusso)
+        |
+        |
+Vengono raggruppa in TEXT OBJECTS
+        |
+        |
+Vengono scelte le TEXT OBJECT rilevanti alla RICERCA DELL'UTENTE
+        |
+        |
+Sistema di RANKING per la scelta delle migliori
+
+---
+
+QUERY METCHING MODEL
+
+---
+
+QUERY LANGUEGES
+
+Quali sono i linguaggi di interrogazion eche fanno da front-end alla Information Retreival?
+Prima di tutto dobbiamo decidere quale sarà il linguaggio che permetterà le interrogazioni.
+Questa decisione dipende da questi due elementi:
+
+1. Chi è il mio utente? (Competenze dell'utente, livello di profondità richiesto della ricerca)
+2. Che cosa memorizzo?
+
+UIN (user Information Need) Richiesta in linguaggio naturale; il sistema deve poi tradurre la richiesta in un insieme di parole chiave. (PHRASAL RETRIEVAL). L'utente deve saper tradurre la propria richiesta in un insieme di parole chiavi (KEYWORD RETREIVAL).
+
+---
+
+A google fa comodo che la maggior parte degli utenit utilizzi un linguaggio computazionalmente più semplice. E' per questo che non pubblicizza le funzionalità del suo query language. Inoltre è un linguaggio rivloto a pochi.
+
+---
+
+KEYWORD BASED QUERY
+
+Dove la query è espressa come una sequenza di tokens o parole chiave. Separate da un separatore, spesso uno spazio. Sono considerate query keyword based le query BOOLEANE, le query ottenute dagli ASSISTENTI VOCALI, e le query che contengono operatori AND OR NOT ecc...
+
+---
+
+STOP WORDS
+
+Articoli di vario genere che non comportano un cambiamento nel matching.
+
+---
+
+OPERATORI DI RICERCA DI GOOGLE (anche BOOLEANI)
+
+RICERCA AVANZATA DI GOOGLE
+
+---
+
+WHILECARD BASED QUERY
+
+Utilizzano operatori molto simili a quelli delle espresisoni regolari. Anzi sono delle vere e proprie espressioni regolari. Di norma in queste query gli operatori più utilizzati sono * e ?. Anghe google supporta le whilecard appena citate in combinazione con le keywords.
+
+esempio:    "p*" OR "save"      parola che inizia con la lettera p oppure parola save.
+esempio:    "p*" "system"       parola che inizia con la lettera p seguita dalla stringa system.
+
+---
+
+PATTERN MATCHING (già riassunto nel pdf)
+
+---
+
+QUERY STRUTTURATA - immagina di avere una pagina suddivisa in sezioni "titolo", "autori", "brief", "Corpo del documento", "fonti", ecc...
+
+---
+
+Quando si costruiscono delle piattaforme di information retrieval si cerca di aiutare l'utente e guidarlo alla compilazione della query.
+
+---
+
+QUERY MATCHING MODELS (searching and ranking)
+
+---
+
+NLTK
+
+https://pypi.org/project/nltk/
+https://www.nltk.org/#Documentation
+
+---
+
+Trasformo una seqenza di caratteri o "TEXT ITEM", in un'informazione che interessa all'utente "TEXT OBJECT".
+
+Pipeline di operazioni.
+
+0. Riconoscimeno della struttura del testo (HTML, ...)
+1. Analisi lessicale (Estrazione di tokens)
+operazioni opzionali
+
+...
+
+
+
+
+
+
+----- APPUNTI LEZIONE (3) 01-ott-2024 ------------------------------------------------
+
+IL PRIMO DI QUESTI MODULI E' QUELLO CHE SI OCCUPA DELLE
+
+                        TEXT PREPROCESSING
+                      DOCUMENT PREPROCESSING
+
+La volta scorsa abbiamo visto la Pipeline necessarie a trasformare un flusso di bytes, di testo, in tokens.
+
+PARTI OBBLIGATORIE
+1. Sicuramente dovrò fare un'analisi sintattica per riconoscere le parole del flusso di bytes.
+2. (OPZIONALE) Devo riuscire ad estrarre la struttura del testo, nel caso esista.
+3. Estraggo il testo.
+
+PARTI FACOLTATIVE
+Tutto il resto è facoltativo.
+
+---
+
+1. ANALIZZATORE LESSICALE (LEXER) (NLTK)
+
+Dobbiamo riconoscere, acquisire e ritornare dei Tokens dal Testo. Il riconoscimento dei token è un attimino più complesso. Normalmente si utilizza un Analizzatore Sintattico come "Lex" (lo stesso visto al corso di Compilatori) il quale crea degli "automi a stati finiti" sviluppati "ad hok". Svilupperemo anche noi degli automi di questo genere più avanti nel corso.
+
+Noi utilizzeremo in questo corso i lexer (gli analizzatori sintattici) messi a disposzione dalla libreria python NLTK.
+
+L'idea è quella di considerare una frase molto semplice e vedere come viene processata ai vari livelli. La frase in questione è quella presente nelle slides. "...chairs...".
+
+L'analizzatore sintattico nasce per processare testo libero. Gli analizzatori sintattici pongono particolare attenzione ai codici (ed ai simboli di separaizone come "/" o "-" o "_"). Molto spesso gli elementi della punteggiatora devono essere distinti tra separatori che devono appartenere al token o caratteri inutili (punteggiatura) che possono essere eliminati. "Questo carattere è parte integrante del token o devo rimuovere il token dividendo la stringa in due token separati?".
+
+Esempio "MS-DOS" verrebbe tokenizzato in "MS DOS" e non va bene.
+In altri casi è giusto considerare i tokens conme elementi separati.
+
+Gli analizzatori sintattici hanno delle regole specifiche che gli permettono di capire quando un segno della punteggiatora è o non è parte integrante del token. Un analizzatore sintattico però può commettere errori. E questi errori ce li portiamo avanti nelle fasi successive.
+
+In altri casi quello che viene fatto è di andare a compattare due parole separate da un segno della punteggiatura per formare un singolo tokens.
+
+Tutti i tokens vengono portati a lettere minuscole. L'uso delle maiuscole porta ad avere degli errori.
+
+---
+
+2. STOP WORDS
+
+Dopo aver ottenuto la sequenza dei tokens, essi vengono fatti passare attraverso un filtro per bloccare tutte le "STOP WORDS". Esso filtra tutte le parole inutili che complicano una possibile query keyword-based. Vengono filtrate parole come "when", "it", "the", "that", "this"; esse vengono scartate. (Articoli, Congiunzioni, ecc...)
+
+Il vantaggio di tutto ciò e che:
+1. Dal punto di vista dell'utente questi termini sono inutili alla ricerca.
+2. Dallaltra parte il numero di tokens diminuisce e questo semplifica l'elaborazione ai livelli successivi. Per esempio le strutture dai ai livelli successivi diventano più piccole.
+
+Nella pipeline ci sono due momenti in cui si possono rimuovere le STOP WORDS:
+1. Durante la fase del Lexer (Prima Fase);
+2. Dopo la fase del Lexer (quindi nella Seconda Fase).
+
+Per memorizzare tutte le STOP WORDS viene utilizzata una lista che le contiene tutte. Ma possono essere utilizzate altre strutture dati più efficienti. Che permettono una navigazione più efficiente dell'insieme di STOP WORDS.
+
+La libreria NLPK fornisce degli elenchi prefatti di STOP WORDS che andremo ad utilizzare.
+
+---
+
+3. STEMMING e LEMMATIZATION (STEMMER vs LEMMATIZER)
+
+Fornisce agli utenti diverse vie per trovare varianti morfologiche degli oggetti cercati. Es. "connect" e le sue varianti "connected, connecting, connection, connections". Tutte queste parole sono rappresentate dalla stessa classe di equivalenza.
+
+L'applicazione di uno Stemmer mi permette di creare delle vere e proprie classi di equivalenza. Nel senso che tutte le parole varianti di una certa parola vengono raggruppate [word1, word2, word3, ...] e sono rappresentate dalla sua forma indice WORD.
+
+root_word --> [variant_word1, variant_word2, variant_word3, ...]
+
+STEMMER vs LEMMATIZER
+
+        STEMMER: Il tool che mi permette di fare stemming si chiama STEMMER. Esso permette di eliminare il suffisso o il prefisso di una parola per ottenere la parola radice. 
+
+        LEMMATIZER: Mentre si chiama LEMMATIZER il tool che è pià avanzato dello stemmer. Non si limita ad eliminare il suffisso o il prefisso di una parola per ottenere la parola radice, esso è in grado di trasformare la parola nella sua forma base così come la troviamo nel dizionario. Es: "I am" il lemmatizer restituisce "To be"
+
+OVER/UNDERSTEMMING
+
+        OVERSTEMMING: lo stemmer toglie troppo (radice) ed il numero di documenti restituiti è troppo grande e tali documenti sono poco relazionati alla ricerca.
+
+        UNDERSTEMMING: lo stemmer toglie troppo poco e quindi restituisce troppo pochi documenti.
+
+Nella pipeline molto raramente si utilizza la LEMMATIZZAZIONE, ma si utilizza lo STEMMMER perchè non cambia troppo la parola, restituisce la sua radice.
+
+VANTAGGIO PER L'INDICIZZAZIONE: Dato che lo Stemmer traduce varianti della stessa parola nella stessa radice facilita la fase finale di Indicizzazione. Proprio perchè l'indicizzazione ora avviene sulla stessa parola invece che tra più varianti.
+
+STEMMER PIU' FAMOSI: Gli stemmer più famosi sono Poter & Lancaster. Entrambi implementati all'interno della libreria nltk.
+Al giorno d'oggi gli stemmer lavorano più o meno allo stesso modo. Non dovrebbe cambiare molto a passare da uno stemmer ad un altro.
+
+---
+
+4. INDEX TERM SELECTION (PARSER o TAGGER)
+
+L'ultima fase è quella di andare a selezionare i termini (INDEX-TERMS) che rappresentano i miei TEXT ITEMS. Sono parole che hanno un peso maggiore rispetto ad altre parole presenti in un flusso di testo molto lungo. Come per esempio quello di una o più pagine web. Non tutte le parole hanno lo stesso peso.
+
+Diverse tecniche di individuazione delle parole con più peso:
+
+SELEZIONE MANUALE DEI TERMINI (index terms)
+Questi specialisti, sono supportati da delle interfacce e sistemi che li aiutano consigliandoli quali sono i termini da selezionare.
+Esempio di un'azienda che fa proprio questo: expertAI: azienda che fa LLM (Large Language Model). 
+
+SELEZIONE AUTOMATICA DEI TERMINI (index terms)
+La difficoltà di questa tecnica è quello distinguere automaticamente quando un termine sopravvissuto alle fasi precedenti è un nome oppure qualcosa d'altro all'interno della frase. Qui entrano in gioco i PARSER ovvero i TAGGER: strumento che etichetta ogni parola con il suo ruolo (nome, verbo, articolo, ...) all'iterno della frase come risultato dell'analisi grammaticale.
+
+La difficoltà dei parser è proprio nella grammatica, fare procesing di free text è veramente complesso. Per questo la correttezza dei parser non eccede il 90%. Normalmente i Parser vengono allenati (training) utilizzando quelli che vengono chiamati "treebank" o "corpus". I corpus più utilizzati sono il "Brown Corpus, LOB corpus, Penn project", largamente utilizzati per allenare i Parser. Parser famosi Apple Pie Parser, Cass, Link Grammar Parser. L'allenamento di un Tagger / Parser non è argomento di questo corso, ma se abbiamo interesse possiamo andare a cercare online.
+
+Di solito si evita di utilizzare un Parser e ci si limita ad utilizzare un Tagger. Associa a ciascuna parola soltanto il part-of-speach (POS) che assume in un contesto. Elaborazione più semplice di quella che fa il Parser.
+
+---
+
+SENTIMENT ANALYSIS
+
+---
+
+ANACONDA: Strumento grafico per gestire più python Virtual Environment. E switchare tra quelli molto velocemente; con un click.
+
+---
+
+ESERCIZIO 1 - SULLE SLIDES - Apllicare i 4 passi visti ad un libro.
+
+---
+
+
+
+
+
+
+----- APPUNTI LEZIONE (4) 03-ott-2024 ------------------------------------------------
+
+---
+
+LIBRERIA beautifulsoup
+https://pypi.org/project/beautifulsoup4/
+
+---
+
+# THESAURUS
+
+---
+
+[x]
+
+Non solamente un vocabolario di termini (che esprimono significati), non è solamente una lista di termini con il loro significato, ma è anche un insieme di relazioni che collegano questi significati.
+
+La combinazione tra TERMINE e SIGNIFICATO viene chiamato INDEX TERM.
+
+Il BROADER TERM è un termine più ampio rispetto ad un altro termine.
+Il NARROW TERM è un termine più specifico rispetto ad un altro termine.
+ogni termine può avere dei BROADER TERM e dei NARROW TERM.
+
+Il Thesaurus viene quindi rappresentato attraverso un grafo composto da nodi (termini) e da collegamenti tra quei nodi (relaizoni).
+
+---
+
+[x]
+
+COME FACCIO A COSTRUIRE ED AGGIORNARE UN THESAURUS?
+- Manualmente o
+- Automaticamente o
+- Semi-automaticamente.
+
+ENRICHMENT: Arricchimento dei thesauri.
+
+---
+
+[x]
+
+COMPONENTI DI UN THESAURUS
+
+1. THESAURUS INDEX TERM
+
+2. THESAURUS INDEX TERM RELATIONSHIPS
+        - Termini diversi che però hanno lo stesso significato
+        - Relazioni più generiche
+                - BRODED Term
+                - NARROW Term
+                - Related Term (la lente è parte degli occhiali, il macete è usato per tagliare le piante).
+
+---
+
+REGOLA D'ORO DI UN THESAURUS
+
+Le relazioni non intercorrono tra i termini, ma tra i significati dei termini.
+Guarda l'elenco completo delle relazioni che possiamo trovare in wordnet (su può prendere spunto).
+
+---
+
+[x]
+
+MESH
+
+ESEMPIO DELLA PIATTAFORMA "National Library of Medicine".
+
+Ogni articolo è taggato con delle etichette. Ogni etichetta è riferito ad un diverso argomento trattato nell'articolo etichettato.
+
+La ricerca ricerca per esempio in termine "hand" come:
+1. MESH Term: documenti che non contengono esplicitamente la parola "hand" ma taggati come "hand";
+2. TEXT Term: documenti che contengono esplicitamente la parola "hand".
+
+MOTIVAZIONI DI UTILIZZO DI UN THESAURUS
+
+Quando abbiamo a che fare con un corpus molto ristretto c'è la possibilità utilizzando un Thesaurus che la ricerca non dia nemmeno un risultato. Questo accade anche quando la richiesta è molto specifica.
+
+Non c'è nulla di più frustrante per uno specialista di non trovare quello che sta cercando.
+
+---
+
+[x]
+
+WORDNET
+(http://wordnetweb.princeton.edu/perl/webwn)
+
+Wordnet usa le Ontologie (è comunque un Thesaurus). Le relazioni non intercorrono tra i termini, ma tra i significati dei termini.
+
+--
+
+[x]
+
+SINOMICITA
+
+Nell'uso comune consideriamo due parole sinonime due parole diverse per coprire lo stesso significato. L'uso dei sinonimi consente di esprimere lo stesso significato più volte in una frase. Due termini sono sinonimi oppure no.
+
+SIMILARITA' DELLE PAROLE
+
+E' una metrica vaga. Definisco due termini simili quando hanno due significati simili; quando hanno molto in comune. La Word Similarity si utilizza SEMPRE. E' molto utile.
+
+("macchina", "motorino"):     <SI> Entrambi Mezzo di Trasporto.
+("macchina", "benzina"):      <NO> Relazionati, ma non simili.
+
+Come una Funzione che si prende in pasto due INDEX TERM (termini con significato) e restituisce un valore appartenente ad R e solitamente con un valore maggiore o uguale a 0.
+$ s(w1, w2) € R >= 0
+
+COMPONENTI PRINCIPALI
+
+1. Path-based similarities: Distanza della prima parola dalla seconda nell'albero dei significati.
+        - Path Distance Similarities: più la distanza aumneto più diminuisce la Similarità.
+        
+        1. La formula più semplice è: 1/distance . Così facendo si rischia di appiattire tutti in valori predefiniti. Bel problema.
+
+        2. Wu-Palmer Similarity: considera le profondità dei due concetti. più le profondità si avvicinano alla "radice" più gli INDEX TERMS sono simili.
+
+2. Il significato dei due termini è spesso utilizzato nello stess ocontesto?
+
+---
+
+COSA FAREMO LA PROSSIMA VOLTA
+
+Word Sense Disambiguator
+Costruiremo un nostro disambiguatore semantico basandosi su WordNet.
+Dandogli una frase il nostro disambiguatore ci darà informaizoni su tutti gli elementi della frase passatagli. Il nostro algoritmo di Word Sense Disambiguation, farà uso della Similarità. La prossima volta implementeremo noi un algoritmo di Word Sense Disambiguation con le formule descritte prima a lezione (per quanto riguarda la similarià).
+
+---
+
+----- APPUNTI LEZIONE (5) 08-ott-2024 ------------------------------------------------
+
+[x]
+
+VISUALIZZIAMO LA FUNZIONE DEL CONTENUTO INFORMATIVO
+
+        IC(c) = - log P(c)
+
+La rappresentazione grafica della funzione è un logaritmo "girato". Per valori altri di P(c) avremo valori bassi di IC(c). Mentre quando avremo valori bassu di P(c) allora avremo valori alti di IC(c). Inoltre è importante capire che l'IC(c) non è 
+
+In altre parole, più un concetto è RARO, più il suo contenuto informativo sarà ELEVATO.
+Mentre invece, più un concetto è FREQUENTE, più il suo contenuto informativo sarà BASSO.
+
+Nella gerarchia dei significati. Tanto più il concetto che sto considerando è più specifico e quindi tanto più è raro che il termine si trovi in molti documenti. Riportare il GRAFICO presente a slide 36 che mostra i valori di IC(c) di diversi termini in gerarchia (hypernimie, ..nimie). Verso le foglie dell'"albero" abbiamo dei concetti molto specifici, mentre verso la radice dell'albero abbiamo termini molto generici.
+Più un concetto si trova in profondità e più il suo IC sarà alto.
+
+"In altre parole, il Contenuto Informativo IC di un concetto a è direttamente proporzionale alla profondità dell'albero in cui si trova il concetto a."
+
+"La similarità tra due concetti a e b è il valore di Contenuto Informativo del Lowest Common Subsumer LCS"
+
+---
+
+[x]
+
+1. WordNet è un Thesaurus! Molti si sono confusi!
+2. Ricordiamoci sempre che le relazioni avvengono tra i concetti. Quindi è necessario specificare per ogni termine il synset specifico (es. "mouse.n.01")
+
+---
+
+[x]
+
+WORD SENSE DISAMBIGUATOR
+
+Word sense disambiguation (WSD):
+È il processo di determinare il significato corretto di una parola in base al contesto in cui viene utilizzata. Molte parole hanno più significati (polisemia), e la WSD è cruciale per evitare ambiguità e migliorare l'accuratezza in attività come traduzione automatica, analisi semantica e recupero delle informazioni. La similarità delle parole viene utilizzata per scegliere quale tra i diversi significati di una parola sia il più vicino alle altre parole nel contesto. Ad esempio, per la parola "banca", in un contesto finanziario verrà identificata come "istituto di credito", mentre in un contesto naturale potrebbe essere "sponda di un fiume".
+
+La WSD consiste nell'associazione di un Significato ad un Termine all'interno di un Contesto specifico.
+
+---
+
+[x]
+
+La Word Sense Disambiguation è ALLA BASE della progettazione di un thesaurus in modo automatico.
+
+---
+
+[x]
+
+IMPLEMENTAZIONE
+
+Sviluppiamo un algoritmo che ci consenta di fare Word Sense Disambiguation a partire dalle conoscenze acquisite sulla Similarità.
+
+--> Wordnet come reference thesaurus
+--> Ci vengono dati un insieme di nomi e dobbiamo disambiguarli (Preprocessing).
+--> Al termine assegno il significato con confidenza migliore.
+
+COME CALCOLO LA CONFIDENZA?
+Guardo il contesto. La parola mi viene data con il suo contesto.
+
+Se ho 2 nomi. La coppia di significati migliore tra i due, è quella che ha la similarità più alta.
+
+---
+
+----- APPUNTI LEZIONE (6) 10-ott-2024 ------------------------------------------------
+
+[no]
+
+Fare una Descrizione a parole dell'algoritmo trattato. Riferisciti al punteggio "score_i" come Valore di Confidenza del significato nella frase. Aggiungere algoritmo al Latex.
+
+---
+
+[x]
+
+QUERY EXPANSION
+
+Espansione delle query per esempio aggiungendo sinonimi di una parola inserita dall'utente nella query all'interno della query stessa. Mi ricordo che Daniele ha implementato questa tecnica tramite un API di chatgpt (Utilizzo di Pre-Trained LLM). Questo eserciizo utilizza la funzione di WSD per aggiungere termini alla query dell'utente.
+
+Molt o simile ad NLTK, alcuuni student l'hanno utilizzato nel loro progetto.
+
+https://spacy.io/
+
+---
+
+[x]
+
+Esperimenti con QUERY EXPANSION
+
+---
+
+[x]
+
+INVERTED INDEX
+
+Sruttura dati accessoria per supportare la ricerca di documenti tramite parole chiavi.
+
+Signature files: ormai non si usano più.
+
+---
+
+[x]
+
+IMPLEMENTAZIONE TRAMITE STRUTTURA TRIE
+
+Nel caso in cui stiamo percorrendo l'albero della trie e ci serve una parola che è prefisso di un'altra parola si utilizza un carattere speciale per dire che la parola cercata è finita.
+
+La complessità computazionale della struttura Trie è dipendente solamente dalla lunghezza della parola. La struttura è completamente indipendente dal vocabolario utilizzato. Questa la rente estremamente efficente rispetto ad altrue strutture dati. O(m) dove m è la lunghezza della stringa.
+
+---
+
+----- APPUNTI LEZIONE (7) XX-ott-2024 ------------------------------------------------
+
+[s]
+
+Ogni struttura dati è "accessoria", il suo costo in spazio si aggiunge a quello dei dati.
+
+Una struttura dati con accesso ai dati è utile se non devi fare quello che viene chiamato SEQUENTIAL or ONLINE SEARCHING.
+
+"Sottoscrivi un servizio e ti arriva un aggiornamento in tempo reale" - esempio, quotazioni in borsa.
+
+Se abbiamo molti meno aggiornamenti rispetto agli accessi ai dati, allora conviene appoggiarsi ad una struttura dati orientata all'accesso efficiente.
+
+Nell'esempio sulle slide, l'operazione di NOT è complicata computazionalmente, perchè dobbiamo controllare che, in questo caso, nessuna parola sia quella specificata.
+
+"Which plays of Shakespeare contain the words Brutus AND Caesar but NOT Calpurnia?"
+Brutus AND Caesar BUT Calpurnia
+Brutus ∩ Caesar / Calpurnia
+
+---
+
+[x]
+
+MATRICE DI INCIDENZA
+
+Vocabolario di termini che sono stati estratti durante la fase di pre-processing (Index-Terms). Mi costruisco una Maschera che consente di controllare and bit-wise. Nell'esempio sulle slides ogni opera è associato un vettore che indica l'associazione di una parola all'opera stessa.
+1: indica che la parola compare nell'opera;
+0: indica che la parola NON compare nell'opera.
+
+Il problema della matrice di incidenza è che occupa molto spazio. Considerando un numero molto grande di documenti e di tokens medi per documento notiamo che la matrice di incidenza occupa molto spazio ma è per lo più vuota, gli uni sono molto sparsi. Come possiamo ottimizzare?
+
+Possiamo memorizzare soltanto "i bit a 1" tralasciando quelli a zero in questo modo: la keyword è la testa di una lista puntata di documenti in cui compare la stessa parola "keyword".
+
+keyword: ----> doc1 ----> doc2 ----> doc3 ----> ...
+
+- (df) "Document Frequency": quanti documenti contengono quella parola (fondamentale per processo di Ranking);
+- (tf) "Term Frequency": Quante volte il termine compare nel documento, Ottenibile dalla lista di "Word-Position".
+
+---
+
+[x]
+
+ESTENDERE OCCORRENZE
+
+...
+- "Word-Position": vedi slides, serve per accellerare ricerche del tipo (keyword1 AND keyword2). Memorizza la posizione di una parola all'interno del documento in cui essa stessa compare.
+
+---
+
+[x]
+
+VEDI STRUTTURA SU SLIDES
+
+---
+
+[x]
+
+STUDIO COMPLESSITA' SPAZIO INVERTED INDEX
+
+VOCABOLARIO: Solitamente il vocabolario ha una crescita sub-lineare circa logaritmica come mostrato nelle slides. Crescita molto lenta. Questo è dovuto al fatto che la maggior parte dei documenti contiene sempre gli stessi termini e di rado termini rari.
+
+Alcune fasi del pre-processing di documenti consente di ridurre il vocabolario, le fasi sono:
+- Stopwords removal: rimozione parole inutili alla query;
+- Lemmatization: riduzione parola a "stemma";
+- Stemming: riduzione parole a radice comune;
+Alcune parole originariamente diverse collidono e andranno ad occupare meno spazioe all'interno del nostro Inverted Index.
+
+Il Word-Position citato in precedenza, permette si di risolvere query complesse con operatori booleani; ma è molto costoso in termini di spazio.
+
+---
+
+IMPLEMENTAZIONE DI UN INVERTED INDEX in python
+
+---
+
+[x]
+
+PERCHE' NON HASH TABLE
+
+Problema nell'utilizzo di una hash-table:
++ non mantiene l'ordinamento dei termini, e quindi rende inefficiente il recupero dei documenti.
++ Problemi di dimensione della pagina O(k);
++ Problemi di dimensione della struttura in se.
++ Problemi di collisioni con backet troppo pieni.
+
+Un vocabolario implementato tramite Trie invece mantiene l'ordinamento e rende possibile accedere a sequenze di documenti.
+
+(1) L'HASH NON SUPPORTA LE RANGED QUERY.
+(2) L'HASH HA PROBLEMI DI COLLISIONI.
+
+---
+
+[x]
+
+INVERTED INDEX PARZIALI & MERGING
+
+nel caso in cui una trie occupi tanta memoria da riempire la memoria principale allora sposto la struttura in memoria secondaria. In questo modo ottengo n strutture inverted index parziali che devo fondere.
+(Come il caso del merge di file nel precedente corso).
+
+Scorrimento i parallelo; due puntatori uno che punta ad un elemento della prima lista e l'altro ad un elemento della seconda lista. Come in un merge tra due vettori ordinati scorro le due liste in modo da inserire i termini in ordine lessicografico.
+
+Questo procedimento costa n iterazioni della prima lista ed n iterazioni nella seconda lista. O(n^2) ~ O(n)
+
+---
+
+[x]
+
+Il vocabolario di solito è piccolino quindi sta in memoria principale.
+
+---
+
+[x]
+
+SERIALIZZAZIONE DI UNA STRUTTURA DATI.
+
+Per salvare una struttura dati da memoria principale su memoria secondaria abbiamo bisogno di serializzare, quindi sequenzializzare i dati della struttura dati.
+
+Primitiva serialize
+Primitiva deserialize 
+
+I Vocabolari possono essere implementati tramite degli Array ordinati come mostrato nelle slides. In questo modo possono essere salvati in memoria secondaria. Questo tramite byte offsets (Vedi esempio sulle slides). Esiste un pacchetto fantastico che ci costruisce gli Inverted Index e lui si tiene le sue strutture dati a basso livello, che a noi studenti non sono richieste.
+
+---
+
+[x]
+
+                      Inverted Index
+               --------------------------------
+  Trie         Vocabulary       Posting Lists
+  ----         -----------      ---------------
+
+    /|         +---------+      +-------------+
+   //| ------> |  term1  | ---> | doc1, doc2  |
+  ///| ------> |  term2  | ---> | doc1, doc3  |
+  \\\| ------> |   ...   | ---> |     ...     |
+   \\| ------> |  termN  | ---> | doc2, doc4  |
+    \|         +---------+      +-------------+
+
+---
+
+[n]
+
+Solitamente i dati (index veri e propri) vengono partizionati in diverse "Shards" che vengono replicati su più "Data Server" per "Fault Tolerance".
+
+Google non ha più bisogno di utilizzare la memoria secondaria dei propri server; hanno talmente tanti server sparsi per il mondo che possono mantenere l'intera struttura all'interno della memoria principale. Questo riduce notevolmente i costi di accesso e di conseguenza la latenza.
+
+Grawling Continuo tramite "Caffeine" per aggiornare l'Inverted Index.
+
+----- APPUNTI LEZIONE (8) 22-ott-2024 ------------------------------------------------
+
+[x]
+
+SINGLE WORD RETRIEVAL
+
+---
+
+[x]
+
+PHRASAL RETRIEVAL
+
+Quella classica query che noi andiamo ad esprimere (anche su Google) con le virgolette.
+
+---
+
+[s]
+
+Esempio:
+
+QUERY: "information retrieval system"
+
+PROCEDIMENTO DEL PHRASAL RETRIEVAL:
+
+1. Troviamo tutti i documenti che contengono tutte e tre le parole "information", "retrieval" e "system". Ridurre il document set su cui vado a lavorare facendo un'intersezione.
+
+>> Solo il documento 7 le contiene tutte e 3
+
+2. CHECK ORDER CONTIGUITY: sono certo che queste tre parole ci siano nel documento ma devo controllare che esse siano contigue. In questo caso ci aiuta molto l'Il "Position Based Inverted Index". 
+
+>> Position List <information>: 1 10 (27) 338
+>> Position List <retrieval>:   2 (28) 939 3127
+>> Position List <system>:      4 (29)   <--- p + i - s
+
+: p = posizione della prima parola nel del documento D.
+: i = posizione della seconda parola nella query Q.
+: s = offset tra parola prima parola e seconda parola nella query Q.
+
+Calcolo la posizione della seconda parola tramite la formula: (p + i - s)
+
+SE PHRASAL QUERY DI PRECISIONE
+
+Controllo tramite una BS se nella lista delle posizioni della seconda parola compare la posizione calcolata.
+
+SE PHRASAL QUERY CON DISTANZA MASSIMA TRA PAROLE
+
+: w = distanza massima consentita tra le due parole, per considerare soddisfatta la query (w > 0).
+Proximity retrieval: w = distanza massima tra le parole.
+
+Posizione minima: (p + i - s)
+Posizione massima: (p + i - s) + w - 1
+
+Tramite l'algoritmo della Binary Search cerco all'interno della lista di posizioni della seconda parola all'intenro del documento D una posizione che sia tra la posizione minima e la posizione massima calcolate.   
+
+In sintesi:
+
+Dato che la parola "system" ha una frequenza di due si parte proprio da questa. Si va in ordine delle parole che compaiono meno. Da qui contiguity check algorithm. Per ogni campo di PL della parola con la frequenza più bassa (O(n)) andiamo a fare una binary search sugli altri PL delle altre parole per cercare posizioni definite in questo modo: p +i -s.
+
+---
+
+[x]
+
+RISPETTO A QUELLO CHE ABBIAMO VISTO, NEGLI SCRITTI:
+
+TEXT PROCESSING
+1. Qual'è la pipeline e quali sono i vari step e cosa significano.
+2. Proporre un esempio seplice.
+
+INVERTED INDEX
+1. Dati questi documenti mi disegni l'inverted index.
+    - PREPROCESSING SU DOCUMENTI
+    - COSTRUZIONE INVERTED INDEX
+
+    Esempio:
+
+    1. Dalla fase di preprocessing dobiamo:
+
+    tokens_doc_1= andare scuola bicicletta
+    tokens_doc_2= bicicletta parcheggiare
+    tokens_doc_3= parcheggiare scuola
+
+    2. Disegno del vettore dei termini:
+
+    andare
+    bicicletta
+    parcheggiare
+    scuola
+
+    3. Disegno della lista di documenti (Word InvertedIndex):
+
+    andare       --> doc1,f1
+    bicicletta   --> doc1,f1 | doc2,f1
+    parcheggiare --> doc2,f1 | doc3,f1
+    scuola       --> doc1,f1 | doc3,f1
+
+---
+
+[ ]
+
+LABORATORIO
+
+Usiamo PostgreSQL
+
+ESEMPIO
+
+Abbiamo un entità "Prodotto" che contiene, codice, descrizione, caratteristiche, ..., altre caratteristiche appartenenti a tabelle diverse. Possiamo andare a ricavare un insieme di keyword ricavate da campi appartenenti a tabelle diverse!
+
+```
+SELECT Descrizione || ' ' || review
+FROM prodotti, review
+WHERE prodotti.codice = preview.codice 
+```
+
+---
+
+[x]
+
+tsvector: colonna field c'è un contenuto testuale lungo che voglio che sia processato. Si tratta di un nuovo tipo che si aggiunge a quelli visti nel corso di Basi di Dati. Questi testi vengono direttamente Lemmatizzati / Stemmizzati da Postgress.
+
+tsquery: è un valore che va memorizzare i lemmi di una query che viene data dall'utente.
+
+---
+
+Per giovedì abbiamo la tabella documenti pronta
+
+
+
+
+
+
+----- APPUNTI LEZIONE (9) 29-ott-2024 ------------------------------------------------
+
+[e]
+
+ALTRI ESERCIZI CON POSTGRESS
+
+---
+
+[e]
+
+COSTRUZIONE INDICI TRAMITE POSTGRESS
+
+Andiamo a creare delle colonne di tipo ts_vector attivamente
+
+Conviene concatenare due campi interessati appartenenti ad un entità in un'altro campo definito come ts_vector. In questo modo il campo non viene definito ts_vector in run-time.
+
+---
+
+VEDIAMO COME INTEGRARE QUESTO TRAMITE LIBRERIE PYTHON:
+
+1) Utilizzare un connettore postgress per pyhon.
+
+2) Utilizzare Lucene (pacchetto pyLucene). In realtà l'implementazione di Lucene è una libreria Java. pyLucene non è altro che un wrapper che riceve richieste in python e chiama le funzionalità originali in java.
+
+3) Whoosh. Libreria python nativa che però è utilizzata per la maggiore, che l'ultima release risale al 2016. Ma funziona benissimo.
+
+---
+
+[x]
+
+VEDIAMO COME FUNZIONE PYLUCENE
+
+INSTALLAZIONE LUPYNE - PIP
+
+https://pypi.org/project/lupyne/
+pip install lupyne
+
+INSTALLAZIONE PYLUCENE - DOCKER
+
+https://hub.docker.com/r/coady/pylucene
+docker pull coady/pylucene
+docker run coady/pylucene
+
+---
+
+[x]
+
+La scelta dei campi impatta fortemente sulle capacità di ricerca del nostro indice. dobbiamo decidere questo al momento della progettazione dell'indice. I campi che dovranno subire ricerche da parte dell'utente dovranno essere precedentemente specificati in fase di progettazione.
+
+Esempio:
+
+Se mettiamo un indice che comprende entrambi i campi Titolo e Autore, non potremmo utilizzare l'indice per una ricerca che comprende uno solo dei due campi...
+
+---
+
+[e]
+
+Di default Lucene permette di customizzare le fasi di preprocessing. Normalmente queste fasi vengono autonomamente eseguite in certi momenti da Lucene.
+
+---
+
+[e]
+
+CREAZIONE DI UN DOCUMENTO
+
+Se vogliamo titolo, contenuti, autori la prof ci consiglia di utilizzare un TextField.TYPE_STORED. Questo applica tutte le frasi di preprocessing.
+
+Altrimenti se vogliamo considerare l'input come stringa possiamo utilizzare lo StringField.TYPE_STORED. Questo applica solamente la tokenizzazione.
+
+Di default non lo memorizza.
+
+---
+
+[x]
+
+AGGIUNTA DI UN INDICE
+
+---
+
+
+
+
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (10) 31-ott-2024 ------------------------------------------------
+
+[x]
+
+QUERY SYNTAX DI LUCENE
+
+Parser e clausole e serie di clausole con parentesi; come descritte sulle slides. Dai un'occhio anche alla doumentazione utticiale di Lucene a: https://lucene.apache.org/core/10_0_0/index.html
+
+[x]
+
+BOOST
+
+Possiamo chiedere che una parte di una query abbia più peso rispetto alla rimenante parte della query. La prof ci ha accennato che i risultato ce li restituisce sempre ordinati dato un modello di ranking. Sappiamo che i risultati arrivano ordinati in ordine di rilevanza. Il primo risultato che viene mostrato è quello che sembra essere il più rilevante. E possiamo permettere all'utente di influenzare "a run-time" questo ordinamento facendo "boosting" di una sezione di query.
+
+---
+
+[x]
+
+INSTALLAZIONE DI PYLUCENE
+
+---
+
+[x]
+
+WHOOSH
+
+Sperimentazione con Whoosh.
+Ultime slide di Whoosh.
+
+---
+
+
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (11) 05-nov-2024 ------------------------------------------------
+
+[x]
+
+MODELLI DI RANKING
+
+I modelli di ranking vengono implementati con come base un inverted index. L'implementazione del modello deve accedere ai documenti secondo la modalità di rappresentazione degli stessi nella mia struttura dati (Inverted Index). Andiamo ad aggiungere il processing per effettuare il ranking che diventerà l'implementazione del modello.
+
+---
+
+[x]
+
+OBIETTIVO IR
+
+L'obiettivo di un Sistema di Information Retrieval è che hai un insieme di documenti rather fixerd (numero di richieste molto maggiore rispetto alla modifica della struttura dei documenti). Dobbiamo trovare i documenti che siano rilevanti rispetto alle necessità informative dell'utente. Quando si fanno queste indagini per la rilevanza per gli utenti in termini di "crowd evaluation"; si dice ad un utente "immagina di star facendo una certa cosa, fai una richiesta al search engine, e valuta i risultati ottenuti".
+
+Il Sistema di Information Retrieval deve avere una CAPACITA' PREDITTIVA, il risultato di questa produzione non è un semplice si / no; ma anzi si basa su un algoritmo di ranking.
+
+RILEVANZA
+Un algoritmo di Ranking è un algoritmo che cerca di introdurre un ordinamento totale dei documenti presenti nel docuemnt set tale per cui il documento risulta essere più rilevante rispetto ad una richiesta. Questo richiede di avere una nozione di RILEVANZA. Quanto è rilevante un documento rispetto ad una Query? Questa rilevanza è data dal modello di information retrieval.
+
+MODELLO DI RANKING
+Il modello di Ranking di un Information Retrieval è una TRIPLA.
+D: insieme composto da viste logiche dei documenti.
+Q: Insieme composto da viste logiche per gli UIN.
+R(q_i, d_j): QxD --> R: funzione che associa un numero reale alla query q_i con il documento d_i, quantificando la SIMILARITA.
+
+Vedremo i metodi che ci consentirà di valutare un Modello di Ranking.
+
+---
+
+TRADEOFF TRA EFFICACIA ED EFFICIENZA
+
+EFFICACIA
+Quanto pertinente
+Quanto bravo?
+
+EFFICIENZA
+Quanto tempo?
+Quanto spaizo?
+
+---
+
+[x]
+
+Page Rank (Page e Brin) è l'algoritmo che servì per fare il ranking delle pagine che adesso formano il web.
+Page Rank sfrutta gli hyperlink e non guarda minimamente il contenuto della pagina; sfrutta esclusivamente i link.
+Per esempio se cerchiamo una ricetta la prima cosa che salta fuori è giallozafferano; perchè? Perchè avrà un numero di
+link entranti e provenienti da pagine molto visitate.
+
+La prof usava Yahoo.
+
+---
+
+[x]
+
+SIMILARITA'
+
+Dati due punti calcolare la distanza tra di essi per valutare la similarità o dissimilarità.
+
+METRICA
+Distanza che rispetta le seguenti tre regole:
+1. non negatività;
+2. simmetria;
+3. disuguaglianza triangolare.
+Negli spazi euclidei questo è sempre soddisfatto.
+
+---
+
+[x]
+
+CLASSIFICATION
+
+---
+
+[x]
+
+CLUSTERING
+
+---
+
+[x]
+
+QUERY BY CONTENT
+
+---
+
+[x]
+
+FEATURE EXTRACTION
+
+La RAPPRESENTAZIONE LOGICA si basa sul concetto di FEATURE EXTRACTION. Dai dati grezzi noi andiamo ad estrarre delle proprietà o features (questo può avvenire anche tramite AI). Se sono bravo ad estrarre le proprietà dai dati grezzi allora ho una buona rappresentazione logica (LOGICAL VIEW). Le Features sono le caratteristiche attraverso le quali vado a rappresentare i nostri oggetti fisicamente. 
+
+RAPPRESENTAZIONE LOGICA: Insieme di valori associati alle features che mi interessano. Un valore per ogni feature. Ciascun valore indica la distanza.
+
+---
+
+[x]
+
+Qualsiasi modello, all'aumentare del numero di features, diminuisce la propria efficacia (diventa meno buono).
+
+---
+
+Fuzzy Set Model     (boolean model)
+BM25                (...)
+
+---
+
+[x]
+
+CLASSICAL IR MODELS
+Insieme di termini indice; la semantica della frase è persa durante il preprocessing; questo insieme contiene le intex terms ma non in ordine.
+Rappresentazione logica dei documenti come insiemi (non ordinati) di termini indice.
+
+PESI
+
+Vettori di pesi associati ai termini. Questi pesi possono essere 0/1 per il modello Booleano e quello probabilistico. Mentre sono >=0 per il Vector Space Model, cioè ammette valori reali non negativi.
+
+---
+
+[x]
+
+MUTUA INDIPENDENZA
+
+Abbiamo visto come capita che alcuni termini si trovino molto spesso insieme, in questo caso diciamo che ciascun peso dall'associazione di un termine con un documento non ci dice niente di un altro termine associato con lo stesso documento. Questo perchè se invece non fosse così rischieremmo di complicare troppo il nostro modello per un miglioramento di efficacia minimo, query troppo dispendiose di tempo.
+
+GUADAGNO
+L'Efficacia del sistema non migliora così tanto quanto mi aspetterei.
+
+---
+
+[x]
+
+MODELLO BOOLEANO
+Il modello booleano supporta query con gli operatori booleano AND OR NOT, è l'unico.
+Logica fuzzy che permette di elaborare query booleane e attuare un sistema di ranking.
+
+Ricerca sulla barra search di un computer (Windows, MAC OS), la ricerca di email su una piattaforma mail sono tutti modelli Booleani (e non fanno ranking).
+Dietro al sistema di ricerca file di Mac OS c'è un Inverted Index. Windows invece ci metteva minuti, perchè su windows bisogna specificare cartella per cartella di creare un indice. Però questi sistemi non fanno ranking. Tipo la ricerca di files di Mac OS stampa i file trovati in ordine di creazione o alfanumerico.
+
+Con il modello booleano non si può applicare ranking.
+Rischia di trovare troppi pochi documenti (risolto dal Fuzzy matching).
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (12) 12-nov-2024 ------------------------------------------------
+
+VECTOR SPACE MODEL
+
+[x]
+
+Si basa sul concetto di Vettore e di Spazi Vettoriali. In questo caso è ammeso che un documento soddisfi parzialmente la richiesta. Tanto più un documento soddisfa la tua richiesta tanto più verrà mostrato in alto.
+
+[x]
+
+FEATURE PROJECtION
+Rappresenta all'interno di uno spazio vettoriale i documenti e le query. Questo approccio si applica in diversi altri contesti e prende il nome di FEATURE PROJECTION.
+Spazio vettoriale a t-dimensioni (t-features) e l'algebra lineare e i suoi operatori (norme, ecc...).
+
+[s]
+
+ESEMPIO UCCELLI (MUTUALE INDIPENDENZA TRA LE FEATURES)
+Nell'esempio si nota come le FEATURES sono MUTUALMENTE INDIPENDENTI. Vediamo due clasterizzazione di uccelli in base alle features. La proiezione degli oggetti in uno spazio t-dimensionale ci permette di misurare le distanze e quindi derivarne la similarità.
+
+[x]
+
+SPAZIO VETTORIALE
+Ho t termini che risultano dalla fase di pre-processing.
+q sta per query
+d sta per document
+
+Vettori Ortogonali
+T_1 = (1, 0, 0)
+T_2 = (0, 1, 0)
+T_3 = (0, 0, 1)
+
+I generatori sono questi qua, è uno spazio ortogonale. E' così perchè abbiamo detto che le Features sono mutualmente indipendenti tra loro.
+Ci sono delle evoluzioni di questo modello che non considera più i vettori come Ortogonali. Questo complica un po' i calcoli.
+
+[x]
+
+COSEN-SIMILARITY
+La similarità potrebbe essere ottenuta misurando la distanza tra due punti, ma in questo modello non è fatto così.
+La similarità viene calcolata tramite il coseno dell'algolo.
+Prende infatti il nome di cosen-similarity.
+Questo semplifica di molto i calcoli.
+Questo modello genera dei valori di similarità nell'intervallo 0-1 (perchè 90° = 0 mentre 0° = 1).
+Il valore dell'algolo è relativo tra due soli vettori, vanno considerati tutte gli angoli (componenti).
+
+[x]
+
+Clacoliamo il coseno.
+Sopra alla frazione abbiamo il prodotto scalare, al di sotto invece abbiamo la moltiplicazione tra le norme.
+
+[ ]
+
+Esempio:
+
+d1 = (2,3,5)
+d2 = (1,7,9)
+                   2 + 21 + 45
+Sim(d1, d2) = ----------------------
+               sqrt(38) + sqrt(131)
+
+Prodotto scalare normalizzato.
+
+Prodotto scalare:       ci da l'idea di quanto quella coppia di vettori saranno vicini.
+Normalizzato:           normalizzato rispetto alla lunghezza dei due vettori.
+
+Quello che cambia al denominatore sarà la lunghezza dei denominatori.
+
+ q * di     q * dj
+-------- < --------
+ | di |     | dj |
+
+Possiamo elidere | q | al denominatore perchè è uguale. Questo accade quando vogliamo fare ranking, non ci serve mettere | q | al denominatore.
+
+---
+
+[x]
+
+ESEMPIO
+
+E' come se facessimo un & bit-a-bit, tra documento e query, e conto quanti 1 abbiamo alla fine.
+La differenza tra D2, D3, con D4, è che D4 ha un temrmine in più che non matcha. I termini metchati sono gli stessi dopo l'& bit-a-bit con la query, ma D4 ha un termine in più che non metcha. Quindi un documento più ha termini mechati e meno termini non metchat più sarà rankato positivamente (in alto).
+
+[x]
+
+I pesi danno l'idea di quanto qel documento è importante per quella query.
+Il peso di un termine è dato da:
+- 1. (tf) Term Frequency, quanto quel termine si ripete.
+- 2. ...
+
+[x]
+
+Il logaritmo è utilizzato per "smussare" i valori della frequenza dopo un certo livello. In modo che la frequenza di parole non conti linearmente.
+Si prende la Document Frequency (DF) senza considerare le Stopwords; in altre parole i termini più rari hanno più contenuto informativo.
+
+Nel peso voglio andare a premiare i termini che sono più rari. Inverse Document Frequency.
+
+d(ft) <= N --> # numero di documenti che contengono il termine t
+
+La formula che descrive l'inverso della crescita di documenti che contengono il termine t sarà:
+
+N / d(ft)
+
+Ma aggiungiamo il logaritmo per smorzare l'effetto del peso:
+
+log ( N / d(ft) )
+
+---
+
+[x]
+
+tf-idf
+
+Term Frequency x Inverse Document Frequency
+
+idf non dipende dal documento ma dalla rarità del termine stesso riferito a tutti i documenti. Quindi non conta nulla in una query con un singolo token.
+
+DIFFERENZA TRA TF e IDF
+- Se abbiamo una query con una singola parola, basta la TF (Term Frequency) per stabilire che il documento che vince è quello con il termine j.
+q(0, ..., 0, wj, 0, ..., 0)
+
+- Mentrese abbiamo una query con più termini, a parità di TF (in due documenti i rispettivi termini compaiono lo stesso numero di volte), allora vincerà il termine più raro, la rarità del termine è espressa da IDF (Inverted Document Frequency).
+
+---
+
+[x]
+
+VANTAGGI E SVANTAGGI VECTOR MODEL
+
+---
+
+[x]
+
+La mutua indipendenza semplifica i calcoli. Dovremmo fare le moltiplicazioni incrociate.
+Nei Generalized Vector Space Model invece i termini non sono completamente indipendenti.
+Questo è stato testato ma è risultato inutile.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (13) 14-nov-2024 ------------------------------------------------
+
+[x]
+
+VECTOR SPACE MODEL & INVERTED INDEX
+
+Voglio che sia applicato il ranking ma dove l'algoritmo sfrutti il mio Inverted Index, altrimenti cosa me ne faccio dell'inverted Index?
+L'utente mi da una query, io vorrei che avvenisse un processing in cui i risultati vengano ordinati secondo il modello scelto ma dove l'algoritmo utilizzi l'Inverted Index.
+Vediamo come sono implementati i Vector Space Models tramite l'utilizzo dell'Inverted Index.
+
+---
+
+[x]
+
+PROBLEMA NELLA RAPPRESENTAZIONE DEI VETTORI
+
+La formula per il calcolo della similarità prevede che tu abbia una sommatoria delle moltiplicazioni di tutti i pesi dei termini considerati (al numeratore).
+Il problema è che i vettori dei pesi dei documenti e della query sono molto sparsi. Sparsi significa che per esempio la query conterrà in media 3, 4 parole e quindi il vettore rappresentante sarà composto da un numero enorme di zeri pari alla dimensione del vocabolario e soli 4 uni. Quindi considerando questi vettori la sommatoria nel calcolo della similarità sarà super inefficiente. Per questo motivo ci serviamo degli Inverted Index.
+
+dj = (0, 0, 0, 0, ..., 1, 0, 0, 0, 0, ..., 1, 0, 0, 0, 0, ..., 0)      # un sacco di spreco
+
+I VETTORI NON VENGONO QUINDI RAPPRESENTATI DIRETTAMENTE, MA VENGONO UTILIZZATO UN INVERTED INDEX
+
+---
+
+[x]
+
+Il vantaggio dell'usare un inverted index è che, ogni volta che devo cercare tutti i documenti che contengono una data parola il costo è:
+- Logaritmico O(log n):         nel caso in cui accedo tramite BinarySearch alla lista ordinata di termini che compongono l'Inverted Index;
+- O(k), k=len(termine):         nel caso in cui accedo tramite struttura dati ausiliaria Trie.
+
+Tutti i termini che non sono nella query e non sono nel documenti li posso non considerare. Perchè 0 x 0 = 0 e quindi non incide minimamente nella somma della somiglianza.
+Nell'Inverted Index non abbiamo una rappresentazione esplicita del vettore, del documento, come vorrebbe il modello vettoriale. Attraverso all'Inverted Index ho accesso ai termini (non direttamente al documento). Se il termine non è presente nella query, e non è presente nel documento, il prodotto fa 0 e non incide nella sommatoria. Allora guardo solamente i termini della query. Guardo solamente i termini per cui w_j e q per il termine t è diverso da 0. Questo riduce di molto il costo computazionale.
+O(#TerminiQuery * #DocumentiConQueiTermini)     << molto minore <<       O(#TerminiVocabolario * #TuttiDocumenti)
+
+USO UN INVERTED INDEX E GUARDO SOLO I TERMINI CHE COMPAIONO SIA NELLA QUERY SIA NEI DOCUMENTI
+
+---
+
+[x]
+
+ANDIAMO A VEDERE COME E' FATTO L'ALGORITMO
+
+1. CONSIDERAZIONI SULL'INVERTED INDEX
+```
+TERM     df
++---------+
+| word1-(2)---> | doc1 | doc3 |
++---------+
+| word2-(1)---> | doc2 |
++---------+
+| word3-(3)---> | doc3 | doc7 | doc8 |
++---------+
+```
+Come Notiamo all'interno della implementazione dell'Inverted Index, per ogni termine abbiamo il df (Document Frequency) cioè il numero di documenti nel quale contenuto compare il termine considerato.
+
+2. CALCOLO DEL PESO PER OGNI TERMINE (OTTENIMENTO DEL NUMERATORE)
+Per ogni termine accediamo alla relative posting list e otteniamo i due seguenti valori:
+--> TF    per il numero di volte che T compare in Q (conta semplice (ft));
+--> IDF   per il termine T (IDF = log(1 + (N / df))).
+a questo punto li moltiplichiamo: 
+--> w = TF * IDF
+
+3. OTTENIMENTO DEI DENOMINATORI
+
+Computiamo la lunghezza di Q tramite la seguente formula:
+--> sqrt(sum(pow(w_j, 2) per ogni j in Q))
+In questo modo non è necessario dover andare a contare il numero di termini di ciascun documento;
+Si calcola la norma del vettore dei pesi, quando si inserisce il documento.
+
+---
+
+[x]
+
+MODELLO PROBABILISTICO
+Esiste una classe di modelli probabilistici. Sono i modelli che tutti gli approcci di learning adottano (LLM). Stimano in base ai sample che i modelli imparano dopo la fase di training. Il modello probabilistico che noi andiamo a vedere è il modello più semplice; prende il nome di Binary Indipendence Model.
+
+COSA E' L'APPROCCIO PROBABILISTICO?
+L'obiettivo di un qualsiasi modello (probabilistico, space vector, exc.), data una query ed un insieme di documenti, è quello di determinare quanto i documenti soddisfino la query.
+
+---
+
+[x]
+
+BINARY INDIPENDENCE MODEL
+
+VSM: Il calcolo di Similarità che il Vector Space Model va a fare si basa sul Cosen Similarity che cerca di tradurra la nostra idea di rilevanza in un qualcosa di quantificabile. Il Cosen Similarity si è dimostrata una delle più performanti.
+
+BIM: Va a studiare il contesto binario in cui c'è incertezza nel definire se il documento è rilevante oppure no per una query. Più la probabilità è alta più sono convinto che quel documento sia rilevante per il ranking. Tanto più sono "confident" che quel documento è rilevante tanto più "te lo metto in alto".
+
+INCERTEZZA
+Il Binary Indipendence Model funziona in modo completamente diverso: nella teoria IR va a rappresentare e a stimare l'Intercettezza che si trova nel calcolo della rilevanza di un documento rispetto ad una query. Se sono in un contesto in cui sono incerto se un documento è rilevante o meno, invece di cercare di computare la rilevanza, quello che vado a fare è di concretizzare l'incertezza.
+
+Il matching tra query e documento avviene in un calcolo formalmente definito ma semanticamente impreciso basato sui termini di indice. Un sistema di Information Retrieval (IR) ha una comprensione incerta della query dell'utente e compie una stima incerta sulla probabilità che un documento soddisfi la query. La teoria della probabilità offre una base solida per questo tipo di ragionamento in condizioni di incertezza. I modelli probabilistici sfruttano questa base per stimare quanto sia probabile che un documento sia rilevante per una query.
+
+---
+
+[x]
+
+PERCHE' MODELLO PROBABILISTICO BINARIO?
+
+R(d, q) ∈ {1, 0}
+
+Rilevanza del documento d per la query q.
+Abbiamo una variabile aleatoria che può assumere due valori, 0 e 1.
+- Zero: se il documento non è rilevante e;
+- Uno:  se è rilevante.
+
+---
+
+[x]
+
+La probabilità che un evento accada + la probabilità che un evento non accada da sempre 1, in un contesto dicotomico.
+
+---
+
+[x]
+
+ASSUNZIONI DI BASE DEL MODELLO BIM:
+
+1. INDIPENDENZA TRA I TERMINI: Mutua Indipendenza, semantica e sintattica, dei termini appartenenti a query e documenti; l'esistenza di un termine non mi da nessuna informazione riguardo alla coesistenza con altri termini (Spazio Ortogonale).
+
+2. BINARIO: non ho pesi sui termini. Assumo che il termine c'è o non c'è. Questo vincolo viene rilassato nel modello evoluto BM25.
+--> d_j = (w_{1j}, w_{2j}, ..., w_{tj})   dove   w_{ij} = 1 se k_i ∈ d_j   altrimenti   w_{ij} = 0
+
+---
+
+[x]
+
+DERIVANDO UNA FUNZIONE PROBABILISTICA PER I TERMINI DELLA QUERY
+
+---
+
+[e]
+
+ALL'ESAME
+
+La prof al più ha chiesto all'esame di far vedere le formule (slide 71-74), di far vedere i passaggi, ma non i passaggi matematici del passare da una formula all'altra. 
+
+---
+
+[x]
+
+"E' come se chiudessi gli occhi e prendessi un documento a caso; quanto questo documento d_j è rilevante per la query q considerata?".
+
+P(R | dj, q): probabilità che il documento d_j (pesca to a caso) sia rilevante per la query q.
+
+P(R | dj, q): probabilità che il documento d_j (pescato a caso) NON sia rilevante per la query q.
+
+---
+
+[x]
+
+PROBABILITA' DI EVENTI INDIPENDENTI ACCADANO INSIEME:
+
+Qual'è la probabilità che dati due eventi mutualmente indipendenti con relative probabilità di accadare, avvengano tutti e due? Il prodotto tra le singole probabilità.
+
+P(A) = 20%
+P(B) = 50%
+
+Probabilità che accadano entrambe: P(A&B) = 10%
+Il calcolo è stato: (0.2 * 0.5 * 100) = (0.1 * 100) = 10%
+
+---
+
+[x]
+
+Con il teorema di Bayes siamo passati dal calcolo della probabilità di rilevanza alla probabilità di pascare un documento tra i documenti rilevanti.
+
+Il documento è un bitvector, 1 quando il termine è presente e 0 quando il termine è assente. Dato che i termini sono indipendenti possiamo usare la probabilità che due eventi indipendenti accadano insieme, cioè la produttoria delle singole probabilità.
+
+---
+
+[x]
+
+Il passaggio successivo è puramente algebrico, con un pizzico di probabilistico,
+- invece di 4 produttorie ne utilizzo una generale.
+- la notazione dei pesi la metto all'esponente in modo da annullare la prima parte se w_ij = 0 oppure annullare la seconda parte se w_ij = 0.
+- la probabilità che il termine j non sia presente in un documento rilevante/non rilevante, è uguale ad 1 - la probabilità che il tremine j sia presente in un documento rilevante/non rilevante.
+        $ P(\bar(k_i) | R, \vec{q}) $ = $ 1 - P(k_i | R, \vec{q}) $
+        $ P(\bar(k_i) | \bar{R}, \vec{q}) $ = $ 1 - P(k_i | \bar{R}, \vec{q}) $
+- applico il logaritmo per "smussare" e per applicare le proprietà dei logaritmi; i logaritmi piacciono molto perchè il log(A*B) = log(A) + log(B).
+
+Infatti nel secondo passaggio viene applicata la proprietà del logaritmo. Le sommatorie piacciono sempre di più delle produttorie. Nelle sommatorie se ho una probabilità a 0 posso poi non computarla. Per trasformare la produttoria in sommatoria non faccio altro che mettere il logaritmo davanti ad una produttoria e questa diventerà una sommatoria di logaritmi. Sempre per le proprietà dei logaritmi, gli esponenti (w_ij e 1 - w_ij) vengono portati fuori dai logaritmi.
+
+---
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (14) 21-nov-2024 ------------------------------------------------
+
+[x]
+
+ULTIME FORMULE VISTE
+Invertire la seconda componente in modo da portare vie il -1 all'esponente della frazione all'interno del logaritmo e portarla fuori ottenendo "- log (...)".
+Il range va da -oo a +oo.
+
+---
+
+[ ]
+
+Ci sono approcci che consentono di stimare la probabilità che k_i sia sia in documenti rilevanti o non rilevanti:
+1. utilizzano la frequenza;
+2. learning sviluppati negli ultimi anni (metodologie per imparare quelle probabilità): ho delle probabilità e le faccio imparare al Modello AI.
+
+---
+
+[x]
+
+INITIAL GUESS
+Si assume che i documenti rilevanti siano:
+- una piccola percentuale della collezione (0.5);
+- e i non rilevanti sono i documenti che contengono un certo termine rispetto al totale (n_j / N).
+
+Se impostiamo questi valori un po' tirati a caso, allora possiamo applicare le formule che ci consentono di calcolare c_i per ogni termine nella query. Prendiamo il c_i e lo mettiamo detro alla sommatoria.
+
+---
+
+[x]
+
+ORDERING PRINCIPLE
+Ma vogliamo andare a migliorare le probabilità. 
+
+Tu mi hai dato una queru, io ti ho calcolato un ranking, questo ranking ha ordinato i documenti, te li presento in ordine.
+Assumo che i primi $v$ siano esattamente l'insieme dei documenti rilevanti, da v in poi quelli non rilevanti.
+Per questo approccio deterministico la difficoltà sta nel decidere il numero $v$.
+Per ogni termine andiamo a vedere i documenti in V (insieme documenti rilevanti) che contengono quel terminte.
+
+Probabilità che terminte si trova nel documento rilevante per la query = V_i / V.
+Probabilità che il termine nel documento non rilevante per la query = n_i -V_i / N - V.
+c_i = ...
+
+Il problema di questo approccio è molto "schizzato"; nel senso che la probabilità fa salti molto alti, non considera le probabilità migliori, è un modello semplicistico e non ottimale.
+La stessa slide mostra un altro metodo che tiene conto dei valor iniziali ed è un po' migliore.
+
+---
+
+[x]
+
+Esempio
+
+```
+D2 | documenti
+D3 | rilevanti
+
+D1 | non rilevanti
+```
+
+Costruita la tabella controllando dove si trovano i termini nei documenti calcoliamo i c_i per ogni termine:
+
+---
+
+[x]
+
+Vantaggio è che alla fine i documenti sono ordinati per ordine di rilevanza.
+
+Svantaggi:
+
+- Dobbiamo indovinare le probabilità iniziali;
+- I pesi sono binari;
+- I termini sono mutualmente indipendenti tra loro e non hanno significato semantico.
+
+---
+
+Il VSM va benissimo per i Search Engine come Google; google combina più modelli ma utilizza molto il Vector Space Model.
+- Nel caso di preferenze allora VSM. 
+
+
+Questi modelli Proabilistici vanno bene se vige la regola dell'80-20; cioè l'80% delle richieste avviane sul 20% dei termini.
+- PubMed (ambito medicina).
+
+---
+
+Wikipedia Learning to rank
+https://en.wikipedia.org/wiki/Learning_to_rank#List_of_methods
+
+Amazon
+https://docs.aws.amazon.com/opensearch-service/latest/developerguide/learning-to-rank.html
+
+Al giorno d'oggi si preferisce dare dei pesi ai termini anche in base al contesto! Infatti:
+"First, a small number of potentially relevant documents are identified using simpler retrieval models which permit fast query evaluation, such as the vector space model, Boolean model, weighted AND,[6] or BM25. This phase is called top- k {\displaystyle k} document retrieval and many heuristics were proposed in the literature to accelerate it, such as using a document's static quality score and tiered indexes.[7] In the second phase, a more accurate but computationally expensive machine-learned model is used to re-rank these documents."
+
+PROMPT ENGINEERING (esempio RAG)
+Sappiamo benissimo che questi modelli sono generativi e quindi inventano. Pian piano si cerca di sistemare queste problematiche; la risposta dipende molto da come fai la domanda. La modalità di come usi quel prompt si chiama PROMPT ENGINEERING. Puoi progettare quel prompt in modo da ridurre la probabilità che l' LLM sbagli ed inventi nel risponderti.
+
+---
+
+[x]
+
+FUZZY SET MODEL
+
+Utilizzato nelle lavatrici per decidere il quantitativo di detersivo da utilizzare rispetto al tempo di lavaggio.
+L'idea che un fato possa essere solo vero o falso è una semplificazione ella realtà che risulta un tradeoff tra vaghezza e precisione.
+Ci sono casi in cui abbiamo bisogno di misurare questa incertezza, nella logica fuzzy un fatto non è solo vero o falso, ma si trova tra il vero e il falso.
+Un falso può essere quindi parzialmente vero e parzialmente falso. 
+
+[x]
+
+CRISP SET
+Idea di insiemistica Aristotelica, un elemento o è dentro o è fuori dall'insieme. Dice che X deve per forza essere oppure non essere in un insieme; X non può appartenere parzialmente ad un insieme. 
+
+FUZZY SET
+Un fuzzy set è un insieme in cui non esiste un limite esatto, una separazione netta.
+Ogni elemento ha un suo grado parziale di appartenenza (memership).
+L'insieme possiamo aimmaginarlo come un cerchio dove nel caso di CRISP è ben definito nel caso di FUZZY si disperde.
+
+[x]
+
+fuzzy Logic
+https://en.wikipedia.org/wiki/Fuzzy_logic
+
+Mi permette di fare ranking anche in presenza di operatori booleani.
+Il modello Fuzzy alla base ha comunque modelli Classici (guarda google).
+
+Formula che si trova anche su WikiPedia, ecc...
+
+---
+
+[x]
+
+ESEMPIO
+"Computer Sience" AND "Information Retrieval"
+        q1         ∩            q2
+
+Immaginiamo di avere quattro documenti
+D1
+D2
+D3
+D4
+
+sim (q1,D1) = .6
+sim (q1,D2) = .3
+sim (q1,D3) = .9
+sim (q1,D4) = .1
+
+sim (q2,D1) = .5
+sim (q2,D2) = .1
+sim (q2,D3) = .75
+sim (q2,D4) = .82
+
+D_q1 = { (D1, .6), (D2, .3), (D3, .9), (D4, .1) }
+D_q2 = { (D1, .5), (D2, .1), (D3, .75), (D4, .82) }
+
+D_{q1 AND q2}
+        min{ sim (q1,D1) = .6, sim (q2,D1) = .5 }
+        min{ sim (q1,D2) = .3, sim (q2,D2) = .1 }
+        min{ sim (q1,D3) = .9, sim (q2,D3) = .75 }
+        min{ sim (q1,D4) = .1, sim (q2,D4) = .82 }
+
+Grazie alla teoria fuzzy posso avere in ranking totale: Nella probabilità hai sempre una logica di counting, vai a contare gli eventi in cui è vera una determinata cosa rispetto a quelli totali. Nella logica fuzzy invece andiamo a capire quanto quell'evento è vero.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (15) 26-nov-2024 ------------------------------------------------
+
+[x]
+
+PROMPT ENGINEERING (esempio RAG)
+Sappiamo benissimo che questi modelli sono generativi e quindi inventano. Pian piano si cerca di sistemare queste problematiche; la risposta dipende molto da come fai la domanda. La modalità di come usi quel prompt si chiama PROMPT ENGINEERING. Puoi progettare quel prompt in modo da ridurre la probabilità che l' LLM sbagli ed inventi nel risponderti. Questo approccio prende il nome di RAG con tutte le sue varianti, che sfrutta la rappresentazione vettoriale dei documenti che sfrutta la logica del cosen-similarity; utilizza questa rappresentazione vettoriale (non quella vista da noi) per costruire un prompt da passare all'LLM.
+
+---
+
+OBIETTIVO DI OGGI
+
+1. Finire le poche slides che sono rimaste sul modeling (BM25, BM25f).
+2. Presentazione del progetto.
+
+---
+
+[x]
+
+BM25
+
+Modello che migliora il Binary Indipendence Model (BIM); mentre BIM mantiane l'indipendenza dei termini, BM25 tiene in considerazione la term frequency e la document lenght. Non vogliamo più un binary, vogliamo tenere in considerazione i valori come fa il modello vettoriale, al denominatore abbiamo la lunghezza dei due documenti. Quindi vogliamo tenere conto della lunghezza dei documenti e della frequenza dei termini.
+
+---
+
+[x]
+
+UTILIZZO DI IDF (Inverse Document Frequency)
+
+La prima formula che utilizza questo modello è paradossale.
+Retrieval Status Value:
+
+        $$ RSV_d = \sum_{t \in q} \log \frac{N}{df_z} $$
+
+La sommatoria dell'ITF (Inverse Term Frequency)
+Ma alla prof non piace molto, e l'ha riscritta come:
+
+        $$ RSV_d = \sum_{t \in q \cap d} \log \frac{N}{df_t} $$
+oppure
+        $$ RSV_d = \sum_{t \in q \cap d} \log IDF(t) $$
+
+Prende i termini che appartengono alla query e al documento, e fa lasommatoria dell'Inverse Document Frequency.
+Sommare l'Inverse Document Frequency di tutti i documenti che appartengono sia alla query sia al documento.
+
+---
+
+[x]
+
+Si dimostra che la stessa formula diventa questa:
+
+$$ RSV_d = \sum_{t \n q \cap d} \log \left[ \frac{N}{df_t} \right] \cdot \frac{ (k_1 + 1)tf_{td} }{ k_1((1 - b) + b) x (L_d / L_{ave}) + tf_{td} } $$
+
+Se ho un documento più lungo della media allora il denominatore aumenta e la similarità si riduce.
+
+---
+
+[x]
+
+UTILIZZO DI TF (Term Frequency)
+
+$$ ... $$
+
+L'ultima formula mostrataci dalla prof viene utilizzata quando entra in gioco anche la frequenza del termine. Viene utilizzata quando ho un testo e voglio cercare tutti i testi più simili a quello che ho inserito. In questo caso ammettiamo delle query che non sono altro che degli snippet di testo per cui stiamo cercando tutti i documenti più rilevanti per lo snippet in questione.
+
+---
+
+[x]
+
+Queste formule hanno dei valori di default utilizzabili.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALCUNI CONSIGLI
+
+Il progetto consisterà nel confrontare i vari modelli di ranking, e nel caso di implementare un modello personalizzato estendendone uno già esistente, tra quelli visti.
+
+Possiamo modificare sia per Whoosh sia per Lucene le funzioni di similarità.
+
+Mentre con Whoosh possiamo modificare il modello in runtime ed utilizzarlo sullo stesso indice.
+
+Lucene invece dobbiamo specificare il modello di ranking ancora prima di creare l'indice. Qundi se vorremo testare tre modelli dovremo creare tre indici separati.
+
+
+
+
+
+INTRODUZIONE AL PROGETTO
+(informazioni principali sulle slides)
+
+Creare dei Search Engine utilizzando le tre tecnologie che la prof ci ha mostrato per fare Full Text Index Search IR.
+
+COLLEZIONE DI DOCUMENTI: La scegliamo noi a piacere. Un sistema che sia in grado di ricevere delle richieste e che riesca a restituire risposte ordinate in mase al modello ecc...
+Possiamo scegliere un dataset accessibile online oppure facendo scraping di un sito, utilizzare per esempio beautifullsoup.
+
+Non c'è un numero di documenti massimo ma c'è un numero di documenti minimo di circa 3000 doumenti. 
+
+Anche in postgresql utilizza un suo modello di ranking e se andiamo a vedere la documentazione (il manuale) potrà vedere come cambiare il modello di ranking.
+
+BANCHMARK
+E' la base di dati che ci consente di fare confronti tra sistemi. Il banchmark ce lo dobbiamo costruire noi: è un insieme di documenti e di query scelte in modo da stressare i nostri documenti. 
+
+Alla prof non interessa l'interfaccia grafica, ma potremmo per esempio farla con flask per metterci avanti con il progetto di Tecnologie Web.
+
+Dobbiamo fare in modo che la fase di preprocessing sia la stessa per tutti, così da stressare
+
+Rispetto al preprocessing, possiamo scegliere di cambiare i meccanismi di preprocessing ma cercando di fare più o meno le stesse scelte.
+
+
+
+
+Vediamo come va l'analizzatore sintattico standard, ma se io nel mio analizzatore sintattico ho delle formule, delle cose che vengono trattate male me lo accorgo nel Banchmark. Allora metterò una serie di query che forzano su quell'aspetto. Vado a vedere query per query le presetazioni.
+
+Dobbiamo quindi documentare su tutto quello che facciamo e modifichiamo. Alla fine consegneremo il progetto con una documentazione.
+
+
+
+
+
+La query in lunguaggio naturale e la traduzione.
+uin.txt o query.txt
+Un readme che mi serve per l'installazione.
+
+
+
+
+
+
+Le slides va consegnata una settimana prima della presentazione.
+- tabelle;
+- grafici;
+(mathplotlib, ceaborn).
+
+
+
+
+
+
+
+COSA DOBBIAMO FARE PER OGGI:
+
+1. Scegliere un buon dataset.
+2. Cercare di Scegliere le 10 queries.
+3. Dividersi i compiti.
+4. In realtà per lo più informarci ed organizzarci.
+
+
+
+1. Scraping di un sito web.
+
+2. Creare dei modelli personalizzati di ranking (utilizzo una variante).
+
+3. banchmark (dobbiamo ancora farlo).
+
+
+
+
+
+
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (16) 28-nov-2024 ------------------------------------------------
+
+PER VALUTARE LA VELOCITA' DI UN INDICE POSSO USARE:
+1. TEMPO: tempo di retrieval.
+2. INSTRUCION NUMBER: numeri di istruzioni eseguite nell'esecuzione (+ istruzioni = + tempo).
+Per esempio utilizzo una Trie perchè ha un costo Lineare sulla linghezza delle parole da cercare.
+
+LINGUAGGIO DI INTERROGAZIONE (QUERY LANGUAGE)
+Lunghezza del linguaggio di interrogazione consono alle esigente dell'utente che si approccia al sistema.
+Un linguaggio puramente keyboard search può andare bene? Dipende dal tipo di utente utilizzatore.
+
+---
+
+DOMANDE
+Dobbiamo ideare un unico stile di Search Engine ed implementarlo tramite i tre sistemi (whoosh, pylucene, posgresql) oppure ideare tre Search Engine completamente diversi?
+
+---
+
+Avendo un set di documenti suddiviso in due sezioni, uno composto da solo i documenti rilevanti, uno composto da solo i documenti non rilevanti per una data query. Quello che dobbiamo fare è andare a vedere quanto il nostro Search Engine è buono a restituire i documenti più rilevanti per la query.
+
+---
+
+IDEA DA IMPLEMENTARE: Come fa google quado cerchi qualcosa, nei primi documenti più rilevanti, va a rovare la risposta alla tua domanda.
+
+---
+
+ESEMPIO DI BENCHMARK
+```
+DATO: UIN
+
+INSIEME DI: DOCUMENTI RILEVANTI
+INSIEME DI: DOCUMENTI NON RILEVANTI
+
+UTILIZZO IL IL MIO: SEARCH ENGINE
+
+TRAMITE FORMULA APPROPRIATA: trovo quanto i primi documenti trovati sono quelli che mi aspetto.
+```
+
+---
+
+RECALL AND PRECISION
+
+RELEVANT DOCUMENT SET
+ANSWER   DOCUMENT SET
+
+PRECISION_{AT <X>}: Precisione però sui primi 10 elementi restituiti dal Search engine. Non sempre posso andare a calcolare la precision e la recall per tutti i documenti restituiti (per numeri di documenti veramente grandi).
+
+Più documenti restituisco più c'è un fattore che incide sulla precision.
+Se restituisco tutti i documenti del corpus la RECALL tende ad aumentare, ma la precision tende a diminuire.
+
+
+
+
+GRANULARITA' GROSSA
+
+PRECISION AT RETRIEVAL (Misure a Granularità Grossa)
+
+I livelli "naturali" di recall possono portarci delle curve crescenti, anche se non ce le aspetteremmo.
+Mentre i livelli standard di recall non crescono perchè andiamo sempre a prendere il massimo?
+Una curva per ogni livello di recall.
+
+MEDIA E VARIANZA
+Non facciamo altro che calcolare la media a tutti i livelli di recall.
+La prof ci consiglia di guardare però MEDIA e anche la VARIANZA.
+Graficamente la varianza tra le query ci permette di visualizzare meglio la differenza di performance tra le varie queries.
+
+PRECISION E MEDIA - PER OGNI LIVELLO
+Riusciamo in partenza a crearci una curva per ogni query, ma chiaramente questo non basta; normalmente si utilizzano 10 queries. Otteniamo la precision a livello 1 per tutte le query e facciamo la MEDIA con la VARIANZA e quello sarà il valore di PRECISION al livello 1 del nostro sistema. Questo lo facciamo per ogni livello.
+
+Dobbiamo effettuare questi passi su ciascun Sistema e adattarlo a seconda del sistema e del modello di ranking. Per esempio per ogni modello di ranking potrebbe essere migliore una certa sequenza di passi di preprocessing.
+
+---
+
+SIGNLE PRECISION VALUE
+
+Considerare caso per caso, query per query, in un podo più specifico. 
+Query più specifica.
+Query più generiche.
+Query più/meno ambigue.
+
+La scelta di ciascuna query deve essere ragionata e giustificata, al fine di stressare i Search Engine in punti differenti.
+
+---
+
+RERANKING 
+Selezionano i documenti standard utilizzando modelli classici standard (quelli visiti).
+E poi utilizzno il reranking basato su modelli di apprendimento per rioridnare i documenti rilevanti (dal più rilevante al minore).
+
+
+
+----- APPUNTI LEZIONE (17) 03-nov-2024 ------------------------------------------------
+
+RECAP PRECISION E RECALL
+
+E' una misura che ci consente di valutare la bontà del ranking ottenuta dalla nostra configurazione di sistema rispetto all'esecuzione di una query. 
+
+Immaginiamo di avere una query $q$ con $n$ documenti rilevanti. Allora cominciamo a calcolare, qual'è la precision quando un utente vede il primo documento rilevante?
+
+X = non rilevante
+R = rilevante
+
+      |
+X X R | X R R ...
+      |
+
+Il nostro sistema produce questo ranking, allora mi chiedo, ma quanti documenti deve vedere l'utente per vederne uno rilevante? In questo caso:
+
+Quando l'utente vede solo i primi 3:
+- La precision è P(1/4) = 1/3
+Quando l'utente vede solo i primi 4:
+- La precioson2 è P(2/4) = 2/5
+...
+PRECISION A LIVELLO DI RACALL NATURALI
+
+
+
+
+Q_1  --> R X X X X R X ...
+Q_2  --> X R R X R R R ...
+Q_3  --> R X X R R R R ...
+Q_4  --> R R X X X X X ...
+Q_5  --> X R R R R R X ...
+Q_6  --> R X X X R R X ...
+Q_7  --> X R R X R X X ...
+Q_8  --> R R R X R R R ...
+Q_9  --> R X R X X X R ...
+Q_10 --> R R R X R R X ...
+
+Si ragiona sia verticalmente confrontando le query.
+Sia orizzontalmente studiando query per query.
+
+AVERAGE PRECISION
+Può capitare che al numeratore dell'AVERAGE PRECISION ci finiscano degli zeri; questo capita perchè il search engine non è in grado di fornire più documenti per una data query. E quindi al numeratore ci sarà una cardinalità maggiore rispetto ai valori al numeratore.
+
+E' importante come nell'esempio mostrato nelle slides, che quando calcoliamo l'average precision SALTIAMO I DOCUMENTI NON RILEVANTI. Non calcoliamo la precision per i documenti non rilevanti (non entreranno nella sommatoria).
+
+
+
+LA MEDIA DELLE MEDIE
+        oppure
+AVERAGE PRECISION AT R (GRAFICO, PLOT, PER VISUALIZZARE LA COMPARISON TRA DUE ALGORITMI DI RETRIEVAL).
+
+
+
+CAPIRE QUAL'E' IL MECCANISMO PIU' EFFICACE PER TRASMETTERE LE INFORMAZIONI
+
+
+
+
+---
+
+COME FACCIAMO A CAPIRE QUANDO UN DOCUMENTO ALL'INTERNO DEL DATASET E' RILEVANTE?
+
+Utilizziamo Google o altri motori di ricerca per capire se un documento è rilevante oppure no.
+
+GOAL STANDARD: GOOGLE
+RICERCA PER SITO: "site:...rfc..."
+
+Dobbiamo trovare un criterio che ci consenta di stabilire se un documento è rilevante o meno per una certa query.
+Un grado che va da 0 a 3 che indica quanto un documento sia rilevante.
+
+Nelle slides sono elencati i problemi della human judjments dei documenti.
+
+Come alternativa utilizzeremo: 
+
+---
+
+MULTI OBJECTIVE OPTIMIZATION
+
+---
+
+Il punto 4 dei 3 a slide 38 non lo tocchiamo.
+
+---
+
+QUAL'E' PIU' IMPORTANTE PER IL NOSTRO UTENTE, RECALL o PRECISION?
+L'utente può volere:
+1. Più documenti possibili anche se ce ne saranno un po' più rilevanti.
+2. Vogliamo che quello che l'utente legge sia rilevante.
+F MESURE e E MESURE
+
+---
+
+
+
+
+
+
+
+
+WILDCARD QUERIES
+
+mon*
+Utilizzo di una ricerca dicotomica per trovare le parole che iniziano con un certo prefisso.
+Trovata una delle parole applichiamo una ricerca dicotomica sinistra e destra per trovare il limite sinistro e destro del range delle parole che cominciano con quel prefisso. O accesso tramite B+Tree con ricerca dicotomica destra/sinistra.
+
+*mon
+Costruiamo un dizionario invertito e riapplichiamo il concetto del punto superiore. Il problema è che il vocabolario primario è ordinato con i prefissi; dovremmo con la soluzione naif iterativamente vedere tutto il dizionario (molto brutto); allora ci creaiamo un secondo dizonario "invertito" inserendo le parole al contrario nell'InvertedIndex.
+
+QUINDI: Creiamo due inverted index, uno "dritto" e uno "invertito"
+
+m*nchen
+In questo caso? Possiamo utilizzare entrambi gli indici e poi inserire le parole trovate o? Possiamo utilizzare entrambi gli indici e poi inserire le parole trovate in un insieme e prendere solo l'intersezione. Prendo l'insieme di di parole che rispettano il prefix o il postfix e ottengo le intersezione dei due insiemi.
+
+Purtroppo questa soluzione non è General Porpouse, non consente di fare per esempio *nda*.
+Ci sono degli strumenti che sono più general porpouse che però utilizzano strutture dati di supporto:
+
+1° TIPO DI SOLUZIONE - PERMUTERM
+
+Ruotare una stringa in questo modo:
+
+    m*nday
+
+Aggiungo un carattere per identificare la fine:
+
+    m*nday$
+
+Prima iterazione della rotazione:
+
+    *nday$m
+
+Seconda iterazione della rotazione:
+
+    nday$m*
+
+- Ogni parola avrà N rotazioni, ogni ipossibile rotazione novrà essere memorizzata. Occupa un sacco di spazio. Ma così facendo riusciamo a fare sempre prefix queries. 
+- Questo PERMUTERM é una struttura (solitamente un B+Tree, ma può anche essere una Trie) che sta sopra all'InvertedIndex che tiene in memoria tutte le permutazioni possibili di ciascuna parola.
+- Vado a costruire un PERMUTERMATION (INVERTED) INDEX che memorizzerà tutte le permutazioni delle parole del dizionario.
+- Non esistono due permutazioni che puntano alla stessa parola, quindi la dimensione della PERMUTATION INDEX va esplodendo, degli studi hanno decretato che la dimensione di quest'ultimo raggiunge circa quattro volte la dimensione dell'INDEX.
+
+
+2° SECONDA SELEZIONE - QGRAMMA
+
+Prendiamo 1 caratteri (dimensione della Sliding Window scelta) e andiamo a prendere q caratteri alla volta sciftando ad ogni iterazione i caratteri di 1 verso destra. Partiamo con l'avere il primo carattere della parola nell'ultima posizione del qgramma, mentre gli altri caratteri si mette un cancelletto #. Quando si arriva alla fine si continua finchè l'ultimo carattere non sta nella prima posizione dell'ultimo qgramma.
+
+Numero dei qgrammi:  L = L + q - 1
+
+Il vantaggio dei q-grammi è che, a differenza dei mermutation index, molte parole condividono gli stessi qgrammi. 
+
+Esempio:   v*a
+
+##v*a$$    -->    ##v   ,   a$$
+
+Mantengo un secondo inverted index in cui i qgrammi contengono alla sequenza di parole che puntano a quel qgramma.
+
+COME SI CERCA CON I QGRAMMI?
+Vengono calcolati tutti i qgrammi di una "parola con "*" che sta venendo cercata". Ogni qgramma ci ritorna un insieme di parole che contengono quel qgramma. Quindi avremo q INSIEMI; facciamo una intersezione tra gli insiemi, troviamo tutte quelle parole che contengono tutti i qgrammi (che appartengono a tutti gli insiemi).
+
+QGRAMMI
+    INVERTED-INDEX-QGRAMMI --> LISTE DI PAROLE --> INVERTED-INDEX --> DIZIONARIO --> DOCUMENTO
+
+Fase di post-filtering
+E' più space efficient del Permutation Index però richiede una fase di Post-Processing per essere sicuro che le parole trovate metchino veamente.
+
+"Tre puntatori che viaggiano in parallelo".
+
+---
+
+BLAST ci permette di ricercare sottosequenza in sequenze. Ammette anche ricerche approssimate.
+
+---
+
+
+
+
+
+
+
+
+
+
+----- APPUNTI LEZIONE (18) 10-nov-2024 ------------------------------------------------
+
+SPELLING CORRECTION
+
+CONTESTI DI UTILIZZO
+O correggo la query dell'utente in modo che faccia match in modo significativo nel mio vocabolario (quando processiamo la query);
+Oppure la applico direttamente sui documenti quando andiamo ad indicizzarli.
+
+DUE MODALITA' D'USO
+1° Spezzo la query in singole parole e correggo parola per parola ignorando il contesto.
+2° Non spezzo la query e correggo le parole in base al contesto (molto più costosa computazionalmente) (correzzione rispetto al so contesto)
+- Esistono diverse tecniche utilizzando LLMs? LLMs trainati (tuning) sul whats-next, per document correction sul contesto.
+
+Noi lavoreremo soprattutto sulla:               ISOLATED WORD CORRECTION
+
+---
+
+EDIT DISTANCE
+Come potremmo definire la distanza tra una parola ed un'altra parola?
+
+---
+
+LETTERE IN PIU' O IN MENO
+
+Date due stringhe S1, S2:
+
+$$ edit(S1, S2) = edit(S2, S1) = # Trasformazioni per cambiare una stringa in un'altra. $$
+
+---
+
+OPERAZIONI DI SWAPPING
+
+Stringhe: S1="cosa", s2="csoa":
+
+edit(S1, S2) = 2 costo                          // LEVENSHTEIN
+swap(S1, S2) = 1 costo                          // DAMERAU
+
+CON LEVENSHTEIN DISTANCE
+Se usiamo la "edit" cosa 2 trasformare "csoa" --> "cosa"
+- ma costa 2 anche trasformare "csoa" --> "casa"
+
+CON DAMERAU-LEVENSHTEIN
+Se usiamo la "domerau" costa 1 (meglio) trasformare "csoa" --> "cosa"
+- ma costa 2 anche trasformare "csoa" --> "casa"
+
+Quindi nel secondo caso è preferibile trasformare "csoa" in "cosa" invece di "casa" (che è meglio). Evitiamo 
+
+---
+
+COME REALIZZARE L'ALGORITMO - PROGRAMMAZIONE DINAMICA - OPTIMAL ALIGNMENT
+(esempi ed esercizi sulle slides)
+
+RISULTATO
+Il risultaot delle operazioni totali da effettuare basta guardare il valore nell'angolo a destra dela sottomatrice.
+
+ALTRI RISULTATI PER LE SOTTOSTRINGHE PER PREFISSI
+Dalla tabella è possibile anche considerare una sotto matrice che ci da informazioni si quante modifiche dobbiamo effettuare per ottenere uno stesso prefisso.
+
+SOGLIA MASSIMA DI ERRORE
+Imposto una soglia massima che stabilisce il numero di trasformazioni ammissibili.
+Viene definita in maniare relativa sulla base della lunghezza della parola data in input.
+Usiamo questa soglia moltiplicandola per la lunghezza della parola per avere un numero massimo di trasformaizoni.
+
+$$ distThr * len(word) $$
+
+ESERCIZIO 1
+Dobbiamo recuperare un Dizionario su cui eseguire gli script
+
+MODALITA' DI OTTENIMENTO DELL'OPTIMAL ALLIGNMENT
+
+1° MODO: Tenere traccia di come abbiamo fatto a calcolare ognuna delle celle della tabella;
+Ci teniamo una matrice parallela dove per ogni cella teniamo in memoria la cella che ha dato origine a quel valore. Dove sono andato a pescare il valore? Ne teniamo traccia. 
+        Ci consente poi, quando arriviamo in fondo, di prendere il corner con l'optimal alignment e andare a ritroso tramite la tabella parallela ricostruendo tutte le operazioni effettuate.
+
+2° MODO: Possiamo andare a ricostruire a ritroso la strada (le operazioni da effettuare) senza aver bisogno di una tabella parallela.
+
+ESERCIZIO 2
+Modificare l'algoritmo proposto dalla prof in modo da supportare anche i pesi relativi
+
+PROGRAMMAZIONE DINAMICA COSTO QUADRATICO
+Il problema è che gli algoritmo di programmaizone dinamica hanno una complessità computazionale quadratica.
+
+OTTIMIZZAZIONI POSSIBILI DA EFFETTUARE. Possiamo utilizzare:
+1. DIZIONARIO ORDINATO (parole ordinate per prefissi comuni) La matrice viene quindi creata in maniera incrementale per prefisso così da fare più parole alla volta.
+2. CI SONO ANCHE ALTRI APPROCCI...
+
+Rimane comunque una operazione costosa...
+
+---
+
+UTILIZZO DI PROXY MOLTO PIU' VELOCI (QGRAMMI or SOUNDEX)
+
+---
+
+1. UTILIZZARE UN QGRAMMA
+Tanto due parole sono sintatticamente simili tanti qgrammi hanno in comune.
+Contrassegnare una stringa con l'insieme delle sottostringhe (qgrammi) che la compongono è una procedura molto utilizzata in diversi ambiti applicativi tra cui gli LLM; non sono per correzione sintattica.
+
+ESEMPIO: q = 2
+{#case$} --> {#c, ca, as, se, e$}
+{#caes$} --> {#c, ca, ae, es, s$}
+
+IDEA DEL FILTRO (con qgrammi)
+Posso utilizzare i qgrammi per filtrare (buttare via) tutti quei qgrammi che non matchano.
+
+QGRAM OVERLAP (QUANTI QGRAMMI HAI IN COMUNE?)
+1. I qgrammi delle parole io li posso sempre calcolare e memorizzare in compile time.
+2. Tutte queste operazioni le posso fare banalmente con qualsias DBMS o struttura dati che mi memorizza i qgrammi con la parola di origine.
+
+MINOR PRECISIONE
+Utilizzando il metodo del qgram overlap è poco precisa.
+
+Non solo di guardare quanti qgrammi hanno in comune.
+Ma nache:
+1. normalizzare in modo che il risultato sia tra 0 e 1
+2. Fare in modo che vengano contati anche
+ 
+COEFFICIENTE DI JACCARD:
+        - NUMERATORE = $|qgram(S1) \cap qgram(S2)|$ Dimensione dell'intersezione dei qgrammi (Quanti qgrammi hanno in comune).
+        - DENOMINATORE = $| qgram(S1) \cup qgram/(S2) |$ Quanti qgrammi ho in comune (unione) di entrambe le parole.
+
+$$ JaccardIndex = \frac{ |qgram(S1) \cap qgram(S2)| }{ | qgram(S1) \cup qgram(S2) | } $$
+
+Da qui sono nati una serie di algoritmi che cercano di calcolare molto velocemente l'UNIONE e l'INTERSEZIONE tra gli insiemi. Anche in questo caso metto una soglia. Il vantaggio di questo approccio è che è molto meno costoso; anche perchè i qgrammi li inserisco in run-time durante l'inserimento della nuova parola. Il contorllo viene velocizzato utilizzando puntatori paralleli per navigare i qgrammi mostrato nell'ultima lezione.
+
+Almeno una volta dobbiamo missare un "qgram check", altrimenti la parola sarebbe corretta.
+
+ALGORITMO DI QGRAM OVERLAP
+Sulle slides notiamo l'algoritmo che ci consente di effettuare questa operazione.
+
+---
+
+2. SOUNDEX
+
+Algoritmo Fonetico per Autonomasia (più diffuso al mondo).
+La prof crede che sia l'unico che attualemente venga utilizzato.
+
+A COSA SERRVE SOUNDEX + TTS (text To Speach)
+Algoritmi Fonetici: appunto vanno a cercare la parola che si pronuncia più similmente a quella inserita. Questi algoritmi vengono utilizzati anche quando si parla di TTS (Text To Speach).
+
+CLASSI DI EQUIVALENZA
+Vengono costruite delle classi che suddividono i suoni in base ai suoni e a come si pronunciano.
+- Sulle slides sono elencate un sacco di classi. Questo è fortemente dipendente dalla lingua.
+- L'algoritmo utilizza solamente le consonanti. Le vocali non vengono considerate.
+
+QUATTRO CARATTERI IN COMUNE
+Vengono costruite delle classi di equivalenza che conterranno parole con pronuncia simile; che avranno quindi questi quattro caratteri in comune.
+
+PRIMO CARATTERE
+Il primo carattere lo si tiene sempre, è cos' che lavora l'algoritmo.
+
+
+ESEMPIO
+
+SIMIL-VOCALI = {A, E, I, O, U, H, W, Y}
+
+Herman
+  v
+H0RM0N
+  v
+H06505         (sustituisci numeri adiacenti uguali con uno solo; ma in questo caso abbiamo uno 0 in mezzo).
+  v
+H655                    
+
+"Herman" becames "H655".
+
+---
+
+QGRAMMI SU WHOOSH E LUCENE
+
+Sia su Whoosh sia su Lucene tutta la parte dei Qgrammi è supportata, lui stesso effettua una autocorrezione creando le strutture sui qgrammi che abbiamo studiato (in modo ottimizzato).
